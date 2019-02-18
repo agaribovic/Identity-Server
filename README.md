@@ -1,2 +1,0 @@
-# apollo
-Team Apollo
