@@ -1,4 +1,7 @@
 
+Lorem ipsum zaksum
+
+
 Jasmin Tiric (33), dolazim iz Sarajeva, po struci arhitekta, na putu da postane Front-End Developer. 
 
 Dobro jutro svima kolko god vas ima
@@ -6,3 +9,4 @@ Dobro jutro svima kolko god vas ima
 
 Dobro jutro svima kolko god vas ima
 Dobro jutro svima kolko god vas ima
+
