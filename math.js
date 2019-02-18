@@ -1,21 +1,27 @@
 
 module.exports=
 {
+    divideTwoNumbers: function(a,b)
+
+    {return a/b},
    substractTwoNumbers: function(a,b)
 
    {return a-b},
-
-}
-
-function add(num1, num2) {
+  addTwoNumbers: function add(num1, num2) {
     return num1 + num2;
-}
-
-function subtraction(a,b){
+},
+  substractTwoNumbers:function subtraction(a,b){
 	if(a > b || a == b)
 		return a - b 
 	else 
 		return b - a 
 }	
+}
+
+
+
+
+
+
 
 
