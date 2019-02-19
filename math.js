@@ -9,7 +9,7 @@ module.exports=
     return num1 + num2;
 },
 
-  subtractTwoNumbers:function subtraction(a,b){
+  subtractTwoNumbers:function(a,b){
 	if(a > b || a == b)
 		return a - b 
 	else 
