@@ -1,1 +1,0 @@
-{"_id":{"$oid":"5c73ae7019c81cea2ec2dd22"},"Calendar":{"EmployeeId":{"$oid":"5c73ac9119c81cea2ec2dca0"},"Type":"","Date":"","Hours":""},"Tasks":[{"ProjectId":{"$oid":"5c73aecc19c81cea2ec2dd3e"},"Description":"","Hours":""}]}
