@@ -1,0 +1,1 @@
+{"_id":{"$oid":"5c73a9da19c81cea2ec2dc3a"},"Person":{"FirstName":"","LastName":"","Gender":"","Image":"","Email":"","Phone":"","Position":"","Birthday":"","BeginDate":"","EndDate":"","Status":""},"Engagement":[{"TeamId":{"$oid":"5c73ac9119c81cea2ec2dca0"},"Role":"","Hours":""}],"CurrentMonth":[]}
