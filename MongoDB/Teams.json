@@ -1,1 +1,10 @@
-{"_id":{"$oid":"5c73ac9119c81cea2ec2dca0"},"Team":{"Name":"","Description":""},"Members":{"EmployeeId":{"$oid":"5c73a9da19c81cea2ec2dc3a"},"Role":"","Hours":""}}
+{
+    "_id" : ObjectId("5c73ac9119c81cea2ec2dca0"),
+    "Name" : "",
+    "Description" : "",
+    "Members" : {
+        "EmployeeId" : ObjectId("5c73a9da19c81cea2ec2dc3a"),
+        "Role" : "",
+        "Hours" : ""
+    }
+}
