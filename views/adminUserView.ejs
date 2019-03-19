@@ -33,6 +33,13 @@
                         <a href="/deleteUser/<%= user._id %>">
                             <i class="fas fa-trash-alt"></i>
                         </a>
+                        <a href="/adminEnableUser/<%= user._id %>">
+                            <% if(user.enabled === false){ %>
+                            <i class="btn btn-danger">Disabled</i>
+                            <% }else{ %>
+                            <i class="btn btn-success">Enabled</i>
+                            <% } %>
+                        </a>
                     </td>
                 </tr>
                 <% }) %>

@@ -5,7 +5,12 @@ import _ from 'lodash'
 const create = (req, res) => {
     let client = new Client(req.body)
     client.secret = base64.encode(client.secret)
+    console.log(client)
     client.stringCreated=client.created.toString().substring(3,15)
+    console.log(client)
+    // client.created=client.created.toString()
+    // console.log(client.created.toString())
+    // console.log(client)
     client.save((err, result) => {
         if (err) {
             return res.status(400).send(err)
