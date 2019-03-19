@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include partials/head %>
+</head>
+<body>
+    <div class="container">
+
+        <div class="col-sm-6 col-sm-offset-3">
+
+            <h1 align="center"> User List </h1>
+            <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back
+            </a>
+            <a style="float:right" href="/adminUserAdd"><i class="fas fa-user-plus"></i> Add a new user
+            </a>
+            <table class="table">
+                <tr>
+                    <th>Enabled</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                <% users.forEach(function(user) { %>
+                <tr>
+                    <td><%= user.enabled %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                        <a href="/adminEditUser/<%= user._id %>">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/deleteUser/<%= user._id %>">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

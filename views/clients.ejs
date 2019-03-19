@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include partials/head %>
+
+</head>
+
+<body>
+    <div class="container" style="position: absolute">
+
+        <div class="col-sm-6 col-sm-offset-3">       
+            <h1 align="center"> Client List </h1>
+            <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back
+            </a>
+            <a style="float:right" href="/AddAClient"><i class="fas fa-user-plus"></i> Add a new client
+            </a>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>ClientName</th>
+                    <th>Redirect</th>
+                    <th>DateCreated</th>
+                    <th>Actions</th>
+                </tr>
+                <% clients.forEach(function(client) { %>
+                <tr>
+                    <td><%= client._id %></td>
+                    <td><%= client.name %></td>
+                    <td><%= client.redirect %></td>
+                    <td><%= client.stringCreated %></td>
+                    <td>
+                        <a href="/editClient/<%= client._id %>">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/deleteClient/<%= client._id %>">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

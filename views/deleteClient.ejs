@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <% include partials/head %>
+
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Client deleted</h1>
+
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+    <p>Go to <a href="/clients">Clients</a></p>
+    <p>Or go <a href="/index">home</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>
