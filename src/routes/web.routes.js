@@ -185,11 +185,30 @@ module.exports = (app) => {
                 body: {users: accId},
                 json: true
             }, (err, result) => {
-                res.redirect('/adminPanel');
+                res.redirect('/index');
             })
         })
     })
     app.get('/adminPanel', (req, res) => {
         console.log(config.currentUser)
         res.render('adminPanel.ejs', { message: '', info:{currentUser:config.currentUser}}) })
+
+    app.get('/adminEnableUser/:id', (req, res) => {
+            var id = req.params.id
+            let enb = true;
+            request.get('http://localhost:5000/api/users/'+ id,(err,result) =>{
+                let user = JSON.parse(result.body);
+                console.log(user)
+                if(user.enabled === true) enb = false;
+                request.put({
+                    url: 'http://localhost:5000/api/users/'+ id,
+                    headers:{ authorization : "bearer "+ config.token},
+                    body: {enabled: enb},
+                    json: true
+             }, (err, result) => {
+                    console.log(result.body)
+                    res.redirect('/adminUserView')
+                })
+            })
+    })
 }

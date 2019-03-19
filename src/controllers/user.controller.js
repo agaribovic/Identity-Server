@@ -1,11 +1,13 @@
 import User from '../models/user.model'
 import Access from '../models/access.model'
+import logger from '../helpers/logger'
 import _ from 'lodash'
 
 const create = (req, res) => {
     let user = new User(req.body)
     user.save((err, result) => {
         if (err) {
+            logger.error(err.errmsg)
             res.status(400).send(err)
         } else {
             res.status(200).send(result)
