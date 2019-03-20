@@ -1,16 +1,13 @@
 <!doctype html>
 <html>
-
 <head>
     <% include partials/head %>
+    <% include partials/customCss %>
 </head>
-
 <body>
-    <div class="container">
-
-        <div class="col-sm-6 col-sm-offset-3">
-
-            <h1><span class="fa fa-sign-in"></span> Signup</h1>
+    <div class="container custom-form">
+        <div class="custom-container">
+            <h2 class="text-center">Signup</h2>
 
             <!-- show any messages that come back with authentication -->
             <% if (message.length > 0) { %>
@@ -33,16 +30,17 @@
                     <input type="password" class="form-control" name="plainText" required>
                 </div>
 
-                <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+                <button type="submit" class="btn btn-custom-primary">Signup</button>
             </form>
-
             <hr>
-
             <p>Already have an account? <a href="/login">Login</a></p>
             <p>Or go <a href="/">home</a>.</p>
-
+            <div class="footer mt-40">
+                <div class="text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
         </div>
-
     </div>
 </body>
 

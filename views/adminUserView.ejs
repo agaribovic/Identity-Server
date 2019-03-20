@@ -3,48 +3,61 @@
 
 <head>
     <% include partials/head %>
+    <% include partials/customCss %>
 </head>
 <body>
-    <div class="container">
-
-        <div class="col-sm-6 col-sm-offset-3">
-
-            <h1 align="center"> User List </h1>
-            <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back
-            </a>
-            <a style="float:right" href="/adminUserAdd"><i class="fas fa-user-plus"></i> Add a new user
-            </a>
-            <table class="table">
+    <div class="container admin-panel-form">
+        <div class="custom-container">
+            <h2 align="center">User List</h2>
+            <div class="row">
+                <div class="col-md-6">
+                        <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a style="float:right" href="/adminUserAdd"><i class="fas fa-user-plus"></i> Add a new user</a>
+                </div>
+            </div>
+                        
+            <table class="table custom-table mt-20">
                 <tr>
-                    <th>Enabled</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th></th>
+                    <th>Actions</th>
+                    <th class="text-right">Status</th>
                 </tr>
                 <% users.forEach(function(user) { %>
                 <tr>
-                    <td><%= user.enabled %></td>
                     <td><%= user.name %></td>
                     <td><%= user.email %></td>
                     <td>
                         <a href="/adminEditUser/<%= user._id %>">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="/deleteUser/<%= user._id %>">
+                        <a href="/deleteUser/<%= user._id %>" class="custom-trash">
                             <i class="fas fa-trash-alt"></i>
                         </a>
+                    </td>
+                    <td>
                         <a href="/adminEnableUser/<%= user._id %>">
                             <% if(user.enabled === false){ %>
-                            <i class="btn btn-danger">Disabled</i>
+                            <button class="btn btn-danger">Disabled</button>
                             <% }else{ %>
-                            <i class="btn btn-success">Enabled</i>
+                            <button class="btn btn-success" style="width: 87px">Enabled</button>
                             <% } %>
                         </a>
                     </td>
+                    <!-- <td><%= user.enabled %></td> -->
                 </tr>
                 <% }) %>
             </table>
+
+            <div class="footer mt-40">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
         </div>
     </div>
+        
 </body>
 </html>

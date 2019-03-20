@@ -3,6 +3,7 @@
 
 <head>
     <% include partials/head %>
+    <% include partials/customCss %>
     <script>
         document.getElementById('datePicker').value = new Date().toDateInputValue();
         document.getElementById('datePicker').value = Date().now
@@ -10,14 +11,18 @@
 </head>
 
 <body>
-    <div class="container">
-
-        <div class="col-sm-6 col-sm-offset-3">
-
-            <h1 align="center"><span class="fa fa-sign-in"></span> New Client Registration</h1>
-
-            <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
-            <a style="float:right" href="/clients"><i class="fas fa-cogs"></i> Clients</a>
+    <div class="container custom-form">
+        <div class="custom-container">
+            <h2 class="text-center">New Client</h2>
+            <div class="row mt-10 mb-10">
+                <div class="col-md-6">
+                        <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a style="float:right" href="/clients"><i class="fas fa-cogs"></i> Clients</a>
+                </div>
+            </div>
+            
             <% if (message.length > 0) { %>
             <div class="alert alert-danger"><%= message %></div>
             <% } %>
@@ -49,13 +54,17 @@
             <input type="date" class="form-control" id="datePicker" >
         </div> -->
 
-                <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+                <button type="submit" class="btn btn-custom-primary">Submit</button>
             </form>
-            <hr>
 
+            <div class="footer mt-40">
+                <div class="text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
         </div>
-
     </div>
+        
 </body>
 
 </html>
