@@ -2623,3 +2623,199 @@
   this.statusCode = code;
   return this;
 }
+2019-03-20T10:26:09.001Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:26:14.581Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:26:29.463Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:26:29.496Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:26:45.946Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:26:45.994Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:28:08.056Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:28:17.285Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:29:32.290Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:29:45.165Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:30:21.437Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:30:55.672Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:31:32.341Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:31:41.036Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:32:22.580Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:33:58.138Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:34:40.101Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:34:41.920Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:34:59.918Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:35:34.082Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:36:18.699Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:37:11.826Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:38:53.266Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:39:06.819Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:39:14.080Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:39:28.572Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:39:35.756Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:40:03.166Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:41:15.950Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:41:26.068Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:41:33.098Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:41:52.934Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:43:22.871Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:43:38.708Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:44:03.567Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:45:44.068Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:45:45.637Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:46:23.614Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:46:41.677Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:28.393Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:29.454Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:29.963Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:30.353Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:49.430Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:50.302Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:47:56.071Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:48:01.965Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:48:39.621Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-20T10:48:54.197Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
