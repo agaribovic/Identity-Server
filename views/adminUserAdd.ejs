@@ -1,24 +1,28 @@
 <!doctype html>
 <html>
-
 <head>
     <% include partials/head %>
+    <% include partials/customCss %>
 </head>
 
 <body>
-    <div class="container">
-
-        <div class="col-sm-6 col-sm-offset-3">
-
-            <h1 align="center"><span class="fa fa-sign-in"></span> User add </h1>
+    <div class="container custom-form">
+        <div class="custom-container">
+            <h2 class="text-center">New User</h2>
+            <div class="row mt-10 mb-10">
+                <div class="col-md-6">
+                        <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a style="float:right" href="/adminUserView"><i class="fas fa-user-plus"></i> Users</a>
+                </div>
+            </div>
 
             <!-- show any messages that come back with authentication -->
             <% if (message.length > 0) { %>
             <div class="alert alert-danger"><%= message %></div>
             <% } %>
 
-            <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
-            <a style="float:right" href="/adminUserView"><i class="fas fa-users"></i> Users</a>
             <form action="/signup" method="post">
                 <div class="form-group">
                     <label>Name</label>
@@ -36,12 +40,15 @@
                     <input type="hidden" class="form-control" name="enabled" value="false">
                 </div>
 
-                <button type="submit" class="btn btn-warning btn-lg">Add</button>
+                <button type="submit" class="btn btn-custom-primary">Add</button>
             </form>
 
-            <hr>
+            <div class="footer mt-40">
+                <div class="text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
         </div>
-
     </div>
 </body>
 

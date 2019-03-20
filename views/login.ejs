@@ -2,39 +2,38 @@
 <html>
 <head>
     <% include partials/head %>
+    <% include partials/customCss %>
 </head>
 <body>
-<div class="container">
+    <div class="container custom-form">
+        <div class="custom-container">
+            <h2 class="text-center">Login</h2>
+            <% if (message!='') { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
 
-<div class="col-sm-6 col-sm-offset-3">
+            <!-- LOGIN FORM -->
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
-
-    <% if (message!='') { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
-
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="username">
+                <button type="submit" class="btn btn-custom-primary">Login</button>
+            </form>
+            <hr>
+            <p>Need an account? <a href="/signup">Signup</a></p>
+            <p>Or go <a href="/">home</a>.</p>
+            <div class="footer mt-40">
+                <div class="text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
-
-    <hr>
-
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
-</div>
-
-</div>
+    </div>
 </body>
 </html>
