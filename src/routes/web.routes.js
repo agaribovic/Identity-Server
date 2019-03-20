@@ -5,7 +5,11 @@ module.exports = (app) => {
     
     app.get('/', (req, res) => { res.render('login.ejs', { message:'',info:config.token}) })
 
-    app.get('/login', (req, res) => { res.render('login.ejs', { message:'', info:config.token}) })
+    app.get('/login', (req, res) => {
+        console.log(req.body);
+        if(req.body.created) res.render('login.ejs', { message:'USJEPEŠNO STE SE SAJNAPALI' , info:config.token});
+         else res.render('login.ejs', { message:'', info:config.token}) }
+         )
 
     app.get('/index', (req, res) => { res.render('index.ejs', { message:'' }) })
 
@@ -39,7 +43,7 @@ module.exports = (app) => {
     })
 
     app.post('/login', (req, res) => {
-
+        
         request.post({
             url: 'http://localhost:5000/auth/login',
             body: req.body,
@@ -65,9 +69,11 @@ module.exports = (app) => {
             body: req.body,
             json: true
         }, (err, result) => {
-            console.log(result.statusCode, result.body)
+            //console.log(result.statusCode, result.body)
+            res.render('login.ejs', {message: 'Successful signup! Please login: ', created: result.body.created})
         })
-        res.redirect('/login')
+
+
     })
 
     app.get('/adminEditUser/:id', (req, res) => {
