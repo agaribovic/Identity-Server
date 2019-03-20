@@ -21,34 +21,31 @@
            
             <table class="table custom-table mt-20">
                 <tr>
-                    <!-- <th>Id</th> -->
                     <th>ClientName</th>
                     <th>Redirect</th>
                     <th>DateCreated</th>
-                    <th>Actions</th>
-                    <th class="text-right">Status</th>
+                    <th>Status</th>
+                    <th class="text-right">Actions</th>
                 </tr>
-                <% clients.forEach(function(client) { %>
+                <% clients.forEach(function(client, i) { %>
                 <tr>
-                    <!-- <td><%= client._id %></td> -->
                     <td><%= client.name %></td>
                     <td><%= client.redirect %></td>
                     <td><%= client.stringCreated %></td>
+                    <td>
+                        <a href="/adminEnableClient/<%= client._id %>">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch<%= i %>" checked='<%= client.enabled %>'>
+                                <label class="custom-control-label" for="customSwitch<%= i %>"></label>
+                            </div>
+                        </a>
+                    </td>
                     <td>
                         <a href="/editClient/<%= client._id %>">
                             <i class="fas fa-edit"></i>
                         </a>
                         <a href="/deleteClient/<%= client._id %>" class="custom-trash">
                             <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/adminEnableClient/<%= client._id %>">
-                            <% if(client.enabled === false){ %>
-                            <button class="btn btn-danger">Disabled</button>
-                            <% }else{ %>
-                            <button class="btn btn-success" style="width: 87px">Enabled</button>
-                            <% } %>
                         </a>
                     </td>
                 </tr>
