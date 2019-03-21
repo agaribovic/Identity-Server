@@ -65,7 +65,7 @@ const signed = (req, res, next) => {
         res.status(401).send("Invalid token");
       } else {
         config.currentUser = result;
-        console.log(config.currentUser)//verify ovdje 
+        //console.log(config.currentUser)//verify ovdje 
         let exp = result.exp - new Date().getTime() / 1000;
         next();
       }
