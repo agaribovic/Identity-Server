@@ -8,6 +8,7 @@ const create = (req, res) => {
     user.save((err, result) => {
         if (err) {
             logger.error(err.errmsg)
+            console.log(err)
             res.status(400).send(err)
         } else {
             res.status(200).send(result)

@@ -4,7 +4,7 @@ const ClientSchema = mongoose.Schema({
     clientId: String,
     name: String,
     secret: String,
-    enabled: Boolean,
+    enabled: { type: Boolean, default: false },
     redirect: String,
     created: { type: Date, default: Date.now },
     stringCreated:String,
