@@ -11,7 +11,6 @@ module.exports = (app) => {
          else res.render('login.ejs', { message:'', info:config.token}) }
          )
 
-    app.get('/index', (req, res) => { res.render('index.ejs', { message:'' }) })
 
     app.get('/profile', (req, res) => { res.render('profile.ejs', { message:'' }) })
 
@@ -49,9 +48,8 @@ module.exports = (app) => {
             body: req.body,
             json: true
         }, (err, result) => {
-            if(result.statusCode==401)
-            {
-                res.render('login.ejs', { message:'User does not exist' , info:config.token}) 
+            if(result.statusCode==401){
+                res.render('login.ejs', { message:'Wrong username or password!' , info:config.token}) 
             }
             else
             {
@@ -69,11 +67,32 @@ module.exports = (app) => {
             body: req.body,
             json: true
         }, (err, result) => {
+            const regexZaIme = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+            const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            const regexZaPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+ 
+            if(result.body.errmsg && result.body.errmsg.includes('email')) {
+                res.render('signup.ejs', { message:'Email već postoji!'})
+ 
+            } else if(req.body.name == '' || req.body.email == '' || req.body.plainText == '') {
+                res.render('signup.ejs', { message:'Molimo popunite sva polja!' , info:config.token})
+            }
+           
+                else if(regexZaIme.test(String(req.body.name)) == false) {
+                res.render('signup.ejs', { message: 'Ime nije validno', info:config.token})
+                }
+ 
+                else if(regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
+                res.render('signup.ejs', { message: 'Email nije validan', info:config.token})
+                }
+ 
+                else if(regexZaPassword.test(String(req.body.plainText)) == false) {
+                    res.render('signup.ejs', {message: 'Password mora sadržavati sljedeće: najmanje jedno veliko slovo, najmanje jedan broj, najmanje jedan znak, dužinu od 8 ili više karaktera', info:config.token})
+                }else{
+                    res.render('login.ejs', {message: 'Successful signup! Please login: ', created: result.body.created})
+                }
             //console.log(result.statusCode, result.body)
-            res.render('login.ejs', {message: 'Successful signup! Please login: ', created: result.body.created})
         })
-
-
     })
 
     app.get('/adminEditUser/:id', (req, res) => {
@@ -148,9 +167,9 @@ module.exports = (app) => {
             body: req.body,
             json: true
         }, (err, result) => {
-            //console.log(result.statusCode, result.body)
+                res.redirect('/clients');
         })
-        res.redirect('/clients')
+
     })
 
 
@@ -191,7 +210,7 @@ module.exports = (app) => {
                 body: {users: accId},
                 json: true
             }, (err, result) => {
-                res.redirect('/index');
+                res.redirect('/adminPanel');
             })
         })
     })
@@ -217,4 +236,52 @@ module.exports = (app) => {
                 })
             })
     })
+
+    app.post('/adminUserAdd', (req, res) => {
+        request.post({
+            url: 'http://localhost:5000/api/users',
+            body: req.body,
+            json: true
+        }, (err, result) => {
+            const regexZaIme = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+            const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+            
+            if(result.body.errmsg && result.body.errmsg.includes('email')) {
+                res.render('adminUserAdd.ejs', { message:'Email već postoji!'})
+ 
+            } else if(req.body.name == '' || req.body.email == '' || req.body.plainText == '') {
+                res.render('adminUserAdd.ejs', { message:'Molimo popunite sva polja!' , info:config.token})
+            }
+                else if(regexZaIme.test(String(req.body.name)) == false) {
+                res.render('adminUserAdd.ejs', { message: 'Ime nije validno', info:config.token})
+                }
+                else if(regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
+                res.render('adminUserAdd.ejs', { message: 'Email nije validan', info:config.token})
+                }else{
+                    res.redirect('/adminUserView')
+                }
+            //console.log(result.statusCode, result.body)
+        })
+    })
+
+    app.get('/adminEnableClient/:id', (req, res) => {
+        var id = req.params.id
+        let enb = true;
+        request.get('http://localhost:5000/api/clients/'+ id,(err,result) =>{
+            let user = JSON.parse(result.body);
+            //console.log(user)
+            if(user.enabled === true) enb = false;
+            request.put({
+                url: 'http://localhost:5000/api/clients/'+ id,
+                headers:{ authorization : "bearer "+ config.token},
+                body: {enabled: enb},
+                json: true
+         }, (err, result) => {
+                console.log(result.body)
+                res.redirect('/clients')
+            })
+        })
+    })
+
+
 }

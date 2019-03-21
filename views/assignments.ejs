@@ -25,7 +25,7 @@
                     <div class="col-md-4">
                         <div class="dropdown">
                             <label for="">Users: </label><br>
-                            <select name="user" class="form-control">
+                            <select name="user" class="form-control" required>
                                 <option type="text" ></option>
                                 <% users.forEach(function(user) { %>
                                 <option type="text" value="<%= user._id %>" ><%= user.name%></option>
@@ -36,7 +36,7 @@
                    <div class="col-md-4">
                         <div class="dropdown">
                             <label for="">Clients: </label><br>
-                                <select name="client" class="form-control">
+                                <select name="client" class="form-control" required>
                                 <!-- <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Clients<span class="caret"></span></button> -->
                                 <option type="text" ></option>
                                 <% clients.forEach(function(client) { %>
@@ -48,7 +48,7 @@
                    <div class="col-md-4">
                        <div class="dropdown">
                            <label for="">Roles: </label><br>
-                                <select name="scopes" class="form-control">
+                                <select name="scopes" class="form-control" required>
                                     <option type="text"></option>
                                     <option type="text" value="Admin">Admin</option>
                                     <option type="text" value="User">User</option>
