@@ -1,0 +1,847 @@
+2019-03-21T07:25:47.617Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:25:51.303Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:25:51.363Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:25:54.187Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:25:54.240Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:25:59.191Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:26:00.346Z [info] Method: GET, Url : /AddAClient, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:26:01.564Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:26:02.165Z [info] Method: GET, Url : /adminUserAdd, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:26:03.069Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:26:04.115Z [info] Method: GET, Url : /clients, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:26:15.811Z [info] Method: GET, Url : /adminEnableClient/5c91f734a317fa16649edd8c, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:28:03.768Z [info] Method: GET, Url : /adminEnableClient/5c91f734a317fa16649edd8c, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:28:32.585Z [info] Method: GET, Url : /adminEnableClient/5c91f734a317fa16649edd8c, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:28:58.029Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:22.133Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:22.498Z [info] Method: GET, Url : /favicon.ico, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:25.196Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:25.262Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:26.709Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:29.472Z [info] Method: GET, Url : /adminEnableUser/5c91feb0bf1ed23f7c0d1c9d, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:29.536Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:30.974Z [info] Method: GET, Url : /adminEnableUser/5c91feb0bf1ed23f7c0d1c9d, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:31.008Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:31.654Z [info] Method: GET, Url : /adminEnableUser/5c91feb0bf1ed23f7c0d1c9d, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:41:31.692Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:01.222Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:02.171Z [info] Method: GET, Url : /clients, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:04.758Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:06.494Z [info] Method: GET, Url : /adminUserAdd, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:07.669Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:09.618Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:11.208Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:13.446Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:15.163Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:17.633Z [info] Method: POST, Url : /adminEditUser, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:17.653Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:42:19.153Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:48:43.213Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:48:45.761Z [info] Method: GET, Url : /favicon.ico, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:48:48.466Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:48:48.581Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:48:49.930Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:08.582Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:09.312Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:09.891Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:10.335Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:10.894Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:11.373Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:11.842Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:12.323Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:12.819Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:42.329Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:43.149Z [info] Method: GET, Url : /adminEditUser/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:46.392Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:46.410Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:49:47.501Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:50:24.338Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:50:24.361Z [info] Method: GET, Url : /api/user/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:52:01.701Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:52:01.734Z [info] Method: GET, Url : /api/user/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:55:28.389Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:55:31.454Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:55:31.508Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:55:32.425Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:55:33.599Z [info] Method: GET, Url : /adminEditUser/5c91feb0bf1ed23f7c0d1c9d, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:55:36.677Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:56:09.693Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:56:09.734Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:56:10.907Z [info] Method: GET, Url : /userSelfEdit/, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:57:02.605Z [info] Method: GET, Url : /userSelfEdit/, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:57:30.331Z [info] Method: GET, Url : /userSelfEdit/, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:58:12.392Z [info] Method: GET, Url : /userSelfEdit/, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:58:33.733Z [info] Method: GET, Url : /userSelfEdit/, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:58:37.045Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:58:39.879Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:58:39.934Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T07:58:41.004Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:00:05.128Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:01:59.332Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:02:09.022Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:02:09.080Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:23:12.254Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:23:15.748Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:23:15.798Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:23:16.868Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:24:59.398Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:25:45.439Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:25:49.241Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:25:49.297Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:25:50.781Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:26:10.295Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:26:10.319Z [info] Method: GET, Url : /api/user/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:15.603Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:19.026Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:33.040Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:40.930Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:40.979Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:43.843Z [info] Method: GET, Url : /userSelfEdit/5c934af578b43e0a209baeb3, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:27:43.858Z [info] Method: GET, Url : /api/user/5c934af578b43e0a209baeb3, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:34:37.198Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:34:42.596Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:34:42.658Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:34:43.658Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:34:47.726Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:35:08.886Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:35:15.730Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:35:17.626Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:35:24.669Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:35:28.295Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:35:30.703Z [info] Method: GET, Url : /adminEditUser/5c91feb0bf1ed23f7c0d1c9d, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:36:17.603Z [info] Method: POST, Url : /adminEditUser, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:36:17.636Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:36:20.203Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:20.428Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:25.052Z [info] Method: POST, Url : /userSelfEdit, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:25.076Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:27.198Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:29.370Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:30.827Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:38:31.729Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:41:48.518Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:41:49.936Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:41:50.873Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:41:52.049Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:42:06.648Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:42:09.861Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:42:44.755Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:42:46.171Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:42:46.940Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:44:27.740Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:44:56.436Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:45:22.273Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:46:50.787Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:47:34.897Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:48:27.213Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:48:49.364Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:48:50.897Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:49:06.470Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:49:41.533Z [info] Method: GET, Url : /assignments, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:50:57.353Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:50:58.392Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:00.203Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:01.855Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:04.959Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:04.982Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:06.325Z [info] Method: GET, Url : /userSelfEdit/5c9217f22044fc2578ba59ae, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:07.733Z [info] Method: POST, Url : /userSelfEdit, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:51:07.767Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:53:29.191Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:53:31.908Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T08:53:40.332Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:13:51.321Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:13:59.982Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:14:00.031Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakircin@gmail.com" }
+2019-03-21T09:15:44.720Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:15:56.624Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:21.945Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:28.624Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:28.692Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:41.500Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:44.109Z [info] Method: GET, Url : /deleteUser/5c934af578b43e0a209baeb3, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:44.126Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:45.491Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:47.221Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:48.370Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:16:54.472Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:18:54.432Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:18:56.045Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:19:04.747Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:19:04.781Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakircin@gmail.com" }
+2019-03-21T09:29:02.878Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:29:08.300Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:29:08.331Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakircin@gmail.com" }
+2019-03-21T09:30:03.605Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:13.058Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:16.096Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:16.160Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:18.117Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:19.928Z [info] Method: GET, Url : /deleteUser/5c935686cc60a42afc689637, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:19.943Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:21.718Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:25.432Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:27.087Z [info] Method: GET, Url : /deleteUser/5c935114109eb50decc17816, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:27.111Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:28.606Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:29.571Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:30.611Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:30:45.100Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:31:48.201Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:07.144Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:07.210Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:08.088Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:09.920Z [info] Method: GET, Url : /adminEditUser/5c9359c51fcf442650cfb871, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:15.027Z [info] Method: POST, Url : /adminEditUser, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:15.060Z [info] Method: POST, Url : /adminEditUser, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:34:15.121Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:38:46.043Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:38:50.802Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:38:52.192Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:38:59.220Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:39:07.664Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:39:07.701Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:39:15.073Z [info] Method: GET, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:39:39.243Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:39:47.078Z [info] Method: GET, Url : /, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:40:19.340Z [info] Method: GET, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:40:42.564Z [info] Method: POST, Url : /signup, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:41:47.220Z [info] Method: POST, Url : /login, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:41:47.257Z [info] Method: GET, Url : /adminPanel, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T10:00:22.263Z [info] Method: GET, Url : /authMail?email=a.garibovic95@gmail.com, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T10:02:31.390Z [info] Method: GET, Url : /authMail?email=a.garibovic95@gmail.com, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T10:02:35.753Z [info] Method: GET, Url : /authMail?email=a.garibovic95@gmail.com, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T10:02:44.947Z [info] Method: GET, Url : /loginMail?email=a.garibovic95@gmail.com, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
