@@ -92,22 +92,22 @@ module.exports = (app) => {
             const regexZaPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
  
             if(result.body.errmsg && result.body.errmsg.includes('email')) {
-                res.render('signup.ejs', { message:'Email već postoji!'})
+                res.render('signup.ejs', { message:'Email already exists!'})
  
             } else if(req.body.name == '' || req.body.email == '' || req.body.plainText == '') {
-                res.render('signup.ejs', { message:'Molimo popunite sva polja!' , info:config.token})
+                res.render('signup.ejs', { message:'Please fill out all fields!' , info:config.token})
             }
            
                 else if(regexZaIme.test(String(req.body.name)) == false) {
-                res.render('signup.ejs', { message: 'Ime nije validno', info:config.token})
+                res.render('signup.ejs', { message: 'Name is not valid', info:config.token})
                 }
  
                 else if(regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
-                res.render('signup.ejs', { message: 'Email nije validan', info:config.token})
+                res.render('signup.ejs', { message: 'Email is not valid', info:config.token})
                 }
  
                 else if(regexZaPassword.test(String(req.body.plainText)) == false) {
-                    res.render('signup.ejs', {message: 'Password mora sadržavati sljedeće: najmanje jedno veliko slovo, najmanje jedan broj, najmanje jedan znak, dužinu od 8 ili više karaktera', info:config.token})
+                    res.render('signup.ejs', {message: 'Password must contain at least one capital letter, one number, one symbol, and be longer than 8 symbols', info:config.token})
                 }else{
                   
                   
