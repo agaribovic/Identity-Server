@@ -8,7 +8,7 @@ module.exports = (app) => {
 
     app.get('/login', (req, res) => {
         console.log(req.body);
-        if (req.body.created) res.render('login.ejs', { message: 'USJEPEŠNO STE SE SAJNAPALI', info: config.token });
+        if (req.body.created) res.render('login.ejs', { message: '', info: config.token });
         else res.render('login.ejs', { message: '', info: config.token })
     })
 
@@ -16,9 +16,9 @@ module.exports = (app) => {
 
     app.get('/profile', (req, res) => { res.render('profile.ejs', { message: '' }) })
 
-    app.get('/signup', (req, res) => { res.render('signup.ejs', { message: '', user: { id: 55, name: 'John Doe' } }) })
+    app.get('/signup', (req, res) => { res.render('signup.ejs', { message: '' }) })
 
-    app.get('/adminUserAdd', (req, res) => { res.render('adminUserAdd.ejs', { message: '', user: { id: 55, name: 'John Doe' } }) })
+    app.get('/adminUserAdd', (req, res) => { res.render('adminUserAdd.ejs', { message: ''  }) })
 
     app.get('/users', (req, res) => {
         request.get('http://localhost:5000/api/users', (err, result) => {
@@ -82,7 +82,7 @@ module.exports = (app) => {
             body: req.body,
             json: true
         }, (err, result) => {
-            
+            //#region 
             let account =  nodemailer.createTestAccount();
 
             // create reusable transporter object using the default SMTP transport
@@ -107,8 +107,14 @@ module.exports = (app) => {
           
             // send mail with defined transport object
             let info = transporter.sendMail(mailOptions)
-
+//#endregion
+            
+            if(req.body.id=='')
             res.render('login.ejs', { message: 'Successful registration! Please login: ', created: result.body.created })
+            else
+            {
+                res.redirect('/adminUserView')
+            }
         })
     })
 
@@ -306,15 +312,6 @@ module.exports = (app) => {
             json: true
         }, (err, result) => {
 
-            Email.send({
-                Host : "smtp.gmail.com",
-                Username : "zakircinjarevic",
-                Password : "zakir234",
-                To : result.email,
-                From : "ApolloIdentity@gmail.com",
-                Subject : "This is the subject",
-                Body : "And this is the body"
-            })
             res.redirect('/adminPanel')
         })
     })
