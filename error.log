@@ -1,2 +1,5 @@
 2019-03-20T07:54:57.969Z [error] undefined
 2019-03-20T16:15:59.915Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "sum@s.s" }
+2019-03-21T09:14:00.031Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakircin@gmail.com" }
+2019-03-21T09:19:04.781Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakircin@gmail.com" }
+2019-03-21T09:29:08.331Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakircin@gmail.com" }

@@ -26,7 +26,7 @@
                         <div class="dropdown">
                             <label for="">Users: </label><br>
                             <select name="user" class="form-control">
-                                <option type="text" ></option>
+                                <option class ="notSelected" value="" selected>Select a user</option>                              
                                 <% users.forEach(function(user) { %>
                                 <option type="text" value="<%= user._id %>" ><%= user.name%></option>
                                 <% }) %>
@@ -37,8 +37,7 @@
                         <div class="dropdown">
                             <label for="">Clients: </label><br>
                                 <select name="client" class="form-control">
-                                <!-- <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Clients<span class="caret"></span></button> -->
-                                <option type="text" ></option>
+                                <option class ="notSelected" value="" selected>Select a client</option>                            
                                 <% clients.forEach(function(client) { %>
                                 <option type="text" value="<%= client._id %>" ><%= client.name%></option>
                                 <% }) %>
@@ -49,7 +48,7 @@
                        <div class="dropdown">
                            <label for="">Roles: </label><br>
                                 <select name="scopes" class="form-control">
-                                    <option type="text"></option>
+                                    <option class ="notSelected" value="" selected>Select a role</option>                                 
                                     <option type="text" value="Admin">Admin</option>
                                     <option type="text" value="User">User</option>
                                 </select>
