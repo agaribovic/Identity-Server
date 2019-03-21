@@ -17,6 +17,11 @@
             <!-- LOGIN FORM -->
             <form action="/signup" method="post">
                 <div class="form-group">
+                        
+                        <input type="hidden" class="form-control" name="id" value="">
+    
+                    </div>
+                <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" name="name" value="" required>
 
@@ -34,7 +39,8 @@
             </form>
             <hr>
             <p>Already have an account? <a href="/login">Login</a></p>
-            <p>Or go <a href="/">home</a>.</p>
+
+            
             <div class="footer mt-40">
                 <div class="text-center">
                     <p>© 2019 Copyright By Apollo Team</p>
