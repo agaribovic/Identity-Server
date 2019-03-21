@@ -2,11 +2,12 @@
 <html>
 
 <head>
-    <% include partials/head %>
-    <% include partials/customCss %>
+   <% include partials/head %>
+   <% include partials/customCss %>
 </head>
 
 <body>
+
     <div class="container admin-panel-form">
         <div class="custom-container">       
             <h2 align="center">Client List</h2>
@@ -54,13 +55,48 @@
                 <% }) %>
             </table>
 
-            <div class="footer mt-40">
-                <div class="col-md-6 offset-md-3 text-center">
-                    <p>© 2019 Copyright By Apollo Team</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+           <table class="table custom-table mt-20">
+               <tr>
+                   <th>ClientName</th>
+                   <th>Redirect</th>
+                   <th>DateCreated</th>
+                   <th>Status</th>
+                   <th class="text-right">Actions</th>
+               </tr>
+               <% clients.forEach(function(client, i) { %>
+               <tr>
+                   <td><%= client.name %></td>
+                   <td><%= client.redirect %></td>
+                   <td><%= client.stringCreated %></td>
+                   <td>
+                       <a href="/adminEnableClient/<%= client._id %>">
+                           <% if(client.enabled === false){ %>
+                               <i class="btn btn-custom-disabled">Disabled</i>
+                               <% }else{ %>
+                               <i class="btn btn-custom-enabled">Enabled</i>
+                           <% } %>
+                       </a>
+                   </td>
+                   <td>
+                       <a href="/editClient/<%= client._id %>">
+                           <i class="fas fa-edit"></i>
+                       </a>
+                       <a href="/deleteClient/<%= client._id %>" class="custom-trash">
+                           <i class="fas fa-trash-alt"></i>
+                       </a>
+                   </td>
+               </tr>
+               <% }) %>
+           </table>
+
+           <div class="footer mt-40">
+               <div class="col-md-6 offset-md-3 text-center">
+                   <p>© 2019 Copyright By Apollo Team</p>
+               </div>
+           </div>
+       </div>
+   </div>
 </body>
 
 </html>
