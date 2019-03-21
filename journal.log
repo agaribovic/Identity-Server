@@ -1,0 +1,36 @@
+2019-03-21T09:43:05.250Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:43:06.779Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:43:15.433Z [info] Method: GET, Url : /deleteUser/5c923b8bb13c93299c38ea60, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:43:15.471Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:43:46.315Z [info] Method: GET, Url : /adminEnableUser/5c90ac4ce1ea2d23b8c088e1, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:43:46.404Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:45:08.292Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:45:21.570Z [info] Method: GET, Url : /adminEnableUser/5c90ac4ce1ea2d23b8c088e1, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}
+2019-03-21T09:45:21.672Z [info] Method: GET, Url : /adminUserView, Response: function status(code) {
+  this.statusCode = code;
+  return this;
+}

@@ -31,10 +31,11 @@
                     <td><%= user.email %></td>
                     <td>
                         <a href="/adminEnableUser/<%= user._id %>">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch<%= i %>" checked='<%= user.enabled %>'>
-                                <label class="custom-control-label" for="customSwitch<%= i %>"></label>
-                            </div>
+                            <% if(user.enabled === false){ %>
+                                <i class="btn btn-danger">Disabled</i>
+                                <% }else{ %>
+                                <i class="btn btn-success">Enabled</i>
+                            <% } %>
                         </a>
                     </td>
                     <td>
