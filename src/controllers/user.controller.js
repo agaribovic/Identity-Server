@@ -5,6 +5,7 @@ import _ from 'lodash'
 
 const create = (req, res) => {
     let user = new User(req.body)
+    user.stringCreated=user.created.toString().substring(3,15)
     user.save((err, result) => {
         if (err) {
             logger.error(err.errmsg)
