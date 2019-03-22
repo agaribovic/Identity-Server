@@ -7,16 +7,13 @@ module.exports = (app) => {
     app.get('/', (req, res) => { res.render('login.ejs', { message: '', info: config.token }) })
 
     app.get('/login', (req, res) => {
-
-
         res.render('login.ejs', { message: '', info: config.token })
-    }
-    )
-
-        console.log(req.body);
-        if (req.body.created) res.render('login.ejs', { message: '', info: config.token });
-        else res.render('login.ejs', { message: '', info: config.token })
+        //     if (req.body.created) res.render('login.ejs', { message: '', info: config.token });
+        // else res.render('login.ejs', { message: '', info: config.token })
     })
+
+
+
 
 
     app.get('/index', (req, res) => { res.render('index.ejs', { message: '' }) })
@@ -27,7 +24,7 @@ module.exports = (app) => {
 
     app.get('/signup', (req, res) => { res.render('signup.ejs', { message: '' }) })
 
-    app.get('/adminUserAdd', (req, res) => { res.render('adminUserAdd.ejs', { message: ''  }) })
+    app.get('/adminUserAdd', (req, res) => { res.render('adminUserAdd.ejs', { message: '' }) })
 
 
     app.get('/users', (req, res) => {
@@ -60,9 +57,8 @@ module.exports = (app) => {
             json: true
         }, (err, result) => {
 
-
-            if(result.statusCode==401){
-                res.render('login.ejs', { message:'Wrong username or password!' , info:config.token}) 
+            if (result.statusCode == 401) {
+                res.render('login.ejs', { message: 'Wrong username or password!', info: config.token })
 
             }
             else {
@@ -74,7 +70,7 @@ module.exports = (app) => {
     })
     app.post('/loginMail/:mail', (req, res) => {
         request.post({
-            url: 'http://localhost:5000/auth/loginMail/'+ '?mail='+req.query.email,
+            url: 'http://localhost:5000/auth/loginMail/' + '?mail=' + req.query.email,
             body: req.body,
             json: true
         }, (err, result) => {
@@ -100,21 +96,21 @@ module.exports = (app) => {
         console.log(req.body)
 
         if (req.body.name === '' || req.body.email === '' || req.body.plainText === '') {
-            res.render('signup.ejs', { message: 'Molimo popunite sva polja!', info: config.token });
+            res.render('signup.ejs', { message: 'Please fill out all fields!', info: config.token });
             flag = true;
         } else if (regexZaIme.test(String(req.body.name)) == false) {
-            res.render('signup.ejs', { message: 'Ime nije validno', info: config.token });
+            res.render('signup.ejs', { message: 'Name is not valid', info: config.token });
             flag = true;
         } else if (regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
             res.render("signup.ejs", {
-                message: "Email nije validan",
+                message: "Email is not valid",
                 info: config.token
             });
             flag = true;
         }
         else if (regexZaPassword.test(String(req.body.plainText)) == false) {
             flag = true;
-            res.render('signup.ejs', { message: 'Password mora sadržavati sljedeće: najmanje jedno veliko slovo, najmanje jedan broj, najmanje jedan znak, dužinu od 8 ili više karaktera', info: config.token })
+            res.render('signup.ejs', { message: 'Password must contain at least one uppercase letter, one number, one symbol, and must be longer than 8 characters', info: config.token })
         }
 
         console.log('IZASO')
@@ -125,84 +121,42 @@ module.exports = (app) => {
                 json: true
             }, (err, result) => {
                 if (result.body.errmsg) {
-                    res.render('signup.ejs', { message: 'Eror upisa u bazu!' })
+                    res.render('signup.ejs', { message: 'Database write error!' })
                 } else res.render('login.ejs', { message: 'Successful signup! Please login: ', created: result.body.created })
 
             })
         }
 
-        request.post({
-            url: 'http://localhost:5000/api/users',
-            body: req.body,
-            json: true
-        }, (err, result) => {
+        //#region 
+        let account = nodemailer.createTestAccount();
 
-            const regexZaIme = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
-            const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-            const regexZaPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
- 
-            if(result.body.errmsg && result.body.errmsg.includes('email')) {
-                res.render('signup.ejs', { message:'Email already exists!'})
- 
-            } else if(req.body.name == '' || req.body.email == '' || req.body.plainText == '') {
-                res.render('signup.ejs', { message:'Please fill out all fields!' , info:config.token})
-            }
-           
-                else if(regexZaIme.test(String(req.body.name)) == false) {
-                res.render('signup.ejs', { message: 'Name is not valid', info:config.token})
-                }
- 
-                else if(regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
-                res.render('signup.ejs', { message: 'Email is not valid', info:config.token})
-                }
- 
-                else if(regexZaPassword.test(String(req.body.plainText)) == false) {
-            res.render('signup.ejs', { message: 'Password must contain at least one uppercase letter, one number, one symbol, and must be longer than 8 characters', info: config.token })
-                }else{
-                  
-                  
-                  //#region 
-            let account =  nodemailer.createTestAccount();
-
-            // create reusable transporter object using the default SMTP transport
-            let transporter = nodemailer.createTransport({
-              host: "smtp.gmail.com",
-              port: 465,
-              secure: true, // true for 465, false for other ports
-              auth: {
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true, // true for 465, false for other ports
+            auth: {
                 user: 'zakircinjarevic@gmail.com', // generated ethereal user
                 pass: 'zakir234' // generated ethereal password
-              }
-            });
-          
-            // setup email data with unicode symbols
-            let mailOptions = {
-              from: '"apollo@identity.com', // sender address
-              to: result.body.email, // list of receivers
-              subject: "Successful registration!", // Subject line
-              text: "You have successfully registered !", // plain text body
-              //html: "<b>Hello world?</b>" // html body
-            };
-          
-            // send mail with defined transport object
-            let info = transporter.sendMail(mailOptions)
-//#endregion
-                  
-                    res.render('login.ejs', {message: 'Successful signup! Please login: ', created: result.body.created})
-                }
-            //console.log(result.statusCode, result.body)
+            }
+        });
 
-            
-            
-           // if(req.body.id=='')
-           // res.render('login.ejs', { message: 'Successful registration! Please login: ', created: result.body.created })
-           // else
-           // {
-            //    res.redirect('/adminUserView')
-            //}
-        })
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: '"apollo@identity.com', // sender address
+            to: result.body.email, // list of receivers
+            subject: "Successful registration!", // Subject line
+            text: "You have successfully registered !", // plain text body
+            //html: "<b>Hello world?</b>" // html body
+        };
 
+        // send mail with defined transport object
+        let info = transporter.sendMail(mailOptions)
+        //#endregion
+
+        res.render('login.ejs', { message: 'Successful signup! Please login: ', created: result.body.created })
     })
+
 
     app.get('/adminEditUser/:id', (req, res) => {
         var id = req.params.id
@@ -223,37 +177,34 @@ module.exports = (app) => {
             json: true
         }, (err, result) => {
 
-            try{
-            let account =  nodemailer.createTestAccount();
+            try {
+                let account = nodemailer.createTestAccount();
 
-            // create reusable transporter object using the default SMTP transport
-            let transporter = nodemailer.createTransport({
-              host: "smtp.gmail.com",
-              port: 465,
-              secure: true, // true for 465, false for other ports
-              auth: {
-                user: 'zakircinjarevic@gmail.com', // generated ethereal user
-                pass: 'zakir234' // generated ethereal password
-              }
-            });
-          
-            // setup email data with unicode symbols
-            let mailOptions = {
-              from: '"apollo@identity.com', // sender address
-              to: result.body.email, // list of receivers
-              subject: "Your account was edited!", // Subject line
-              text: `Your account with name ${result.body.name} was edited.
-              Click this link to log in. `, // plain text body
-              //html: "<b>Hello world?</b>" // html body
-            };
-          
-            // send mail with defined transport object
-            let info = transporter.sendMail(mailOptions)
-        }
-        catch(err){
-            res.render('login.ejs', { message: 'Sorry, there was a mistake'})
-        }
+                // create reusable transporter object using the default SMTP transport
+                let transporter = nodemailer.createTransport({
+                    host: "smtp.gmail.com",
+                    port: 465,
+                    secure: true, // true for 465, false for other ports
+                    auth: {
+                        user: 'zakircinjarevic@gmail.com', // generated ethereal user
+                        pass: 'zakir234' // generated ethereal password
+                    }
+                });
 
+                let mailOptions = {
+                    from: '"apollo@identity.com', 
+                    to: result.body.email, 
+                    subject: "Your account was edited!", 
+                    text: `Your account with name ${result.body.name} was edited.
+              Click this link to log in. `, 
+                    //html: "<b>Hello world?</b>" // html body
+                };
+
+                let info = transporter.sendMail(mailOptions)
+            }
+            catch (err) {
+                res.render('login.ejs', { message: 'Sorry, there was a mistake' })
+            }
             res.redirect('/adminUserView')
         })
     })
@@ -378,8 +329,8 @@ module.exports = (app) => {
             })
         })
     })
-    
-    
+
+
 
     app.get('/userSelfEdit/:id', (req, res) => {
         request.get('http://localhost:5000/api/users/' + config.currentUser._id, (err, result) => {
@@ -431,15 +382,16 @@ module.exports = (app) => {
         }
         console.log('IZASO')
         if (!flag) {
-        request.post({
-            url: 'http://localhost:5000/api/users',
-            body: req.body,
-            json: true
-        }, (err, result) => {
-            if (result.body.errmsg) {
-                res.render('signup.ejs', { message: 'Eror upisa u bazu!' })
-            } else res.redirect('/adminUserView')
-        })}
+            request.post({
+                url: 'http://localhost:5000/api/users',
+                body: req.body,
+                json: true
+            }, (err, result) => {
+                if (result.body.errmsg) {
+                    res.render('signup.ejs', { message: 'Eror upisa u bazu!' })
+                } else res.redirect('/adminUserView')
+            })
+        }
     })
 
     app.get('/adminEnableClient/:id', (req, res) => {
@@ -460,9 +412,4 @@ module.exports = (app) => {
             })
         })
     })
-
-
-
-    app.get('/userSelfEdit', (req, res) => { res.render('userSelfEdit.ejs', { message: '' }) })
-
 }
