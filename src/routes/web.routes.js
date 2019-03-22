@@ -8,13 +8,7 @@ module.exports = (app) => {
 
     app.get('/login', (req, res) => {
         res.render('login.ejs', { message: '', info: config.token })
-        //     if (req.body.created) res.render('login.ejs', { message: '', info: config.token });
-        // else res.render('login.ejs', { message: '', info: config.token })
     })
-
-
-
-
 
     app.get('/index', (req, res) => { res.render('index.ejs', { message: '' }) })
 
@@ -122,39 +116,39 @@ module.exports = (app) => {
             }, (err, result) => {
                 if (result.body.errmsg) {
                     res.render('signup.ejs', { message: 'Database write error!' })
-                } else res.render('login.ejs', { message: 'Successful signup! Please login: ', created: result.body.created })
+                } else {
+                    let account = nodemailer.createTestAccount();
 
+                    // create reusable transporter object using the default SMTP transport
+                    let transporter = nodemailer.createTransport({
+                        host: "smtp.gmail.com",
+                        port: 465,
+                        secure: true, // true for 465, false for other ports
+                        auth: {
+                            user: 'zakircinjarevic@gmail.com', // generated ethereal user
+                            pass: 'zakir234' // generated ethereal password
+                        }
+                    });
+
+                    // setup email data with unicode symbols
+                    let mailOptions = {
+                        from: '"apollo@identity.com', // sender address
+                        to: result.body.email, // list of receivers
+                        subject: "Successful registration!", // Subject line
+                        text: "You have successfully registered !", // plain text body
+                        //html: "<b>Hello world?</b>" // html body
+                    };
+
+                    // send mail with defined transport object
+                    let info = transporter.sendMail(mailOptions)
+                    //#endregion
+
+
+                    res.render('login.ejs', { message: 'Successful signup! Please login: ', created: result.body.created })
+                }
             })
         }
 
-        //#region 
-        let account = nodemailer.createTestAccount();
-
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true, // true for 465, false for other ports
-            auth: {
-                user: 'zakircinjarevic@gmail.com', // generated ethereal user
-                pass: 'zakir234' // generated ethereal password
-            }
-        });
-
-        // setup email data with unicode symbols
-        let mailOptions = {
-            from: '"apollo@identity.com', // sender address
-            to: result.body.email, // list of receivers
-            subject: "Successful registration!", // Subject line
-            text: "You have successfully registered !", // plain text body
-            //html: "<b>Hello world?</b>" // html body
-        };
-
-        // send mail with defined transport object
-        let info = transporter.sendMail(mailOptions)
-        //#endregion
-
-        res.render('login.ejs', { message: 'Successful signup! Please login: ', created: result.body.created })
     })
 
 
@@ -192,11 +186,11 @@ module.exports = (app) => {
                 });
 
                 let mailOptions = {
-                    from: '"apollo@identity.com', 
-                    to: result.body.email, 
-                    subject: "Your account was edited!", 
+                    from: '"apollo@identity.com',
+                    to: result.body.email,
+                    subject: "Your account was edited!",
                     text: `Your account with name ${result.body.name} was edited.
-              Click this link to log in. `, 
+              Click this link to log in. `,
                     //html: "<b>Hello world?</b>" // html body
                 };
 
