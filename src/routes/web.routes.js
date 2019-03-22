@@ -7,6 +7,12 @@ module.exports = (app) => {
     app.get('/', (req, res) => { res.render('login.ejs', { message: '', info: config.token }) })
 
     app.get('/login', (req, res) => {
+
+
+        res.render('login.ejs', { message: '', info: config.token })
+    }
+    )
+
         console.log(req.body);
         if (req.body.created) res.render('login.ejs', { message: '', info: config.token });
         else res.render('login.ejs', { message: '', info: config.token })
@@ -18,9 +24,11 @@ module.exports = (app) => {
 
     app.get('/profile', (req, res) => { res.render('profile.ejs', { message: '' }) })
 
+
     app.get('/signup', (req, res) => { res.render('signup.ejs', { message: '' }) })
 
     app.get('/adminUserAdd', (req, res) => { res.render('adminUserAdd.ejs', { message: ''  }) })
+
 
     app.get('/users', (req, res) => {
         request.get('http://localhost:5000/api/users', (err, result) => {
@@ -52,6 +60,7 @@ module.exports = (app) => {
             json: true
         }, (err, result) => {
 
+
             if(result.statusCode==401){
                 res.render('login.ejs', { message:'Wrong username or password!' , info:config.token}) 
 
@@ -73,6 +82,7 @@ module.exports = (app) => {
                 res.render('login.ejs', { message: 'User does not exist', info: config.token })
             }
             else {
+
                 config.token = result.body
                 res.redirect('/adminPanel')
             }
@@ -81,6 +91,46 @@ module.exports = (app) => {
     })
 
     app.post('/signup', (req, res) => {
+
+        let flag = false;
+
+        const regexZaIme = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+        const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        const regexZaPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+        console.log(req.body)
+
+        if (req.body.name === '' || req.body.email === '' || req.body.plainText === '') {
+            res.render('signup.ejs', { message: 'Molimo popunite sva polja!', info: config.token });
+            flag = true;
+        } else if (regexZaIme.test(String(req.body.name)) == false) {
+            res.render('signup.ejs', { message: 'Ime nije validno', info: config.token });
+            flag = true;
+        } else if (regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
+            res.render("signup.ejs", {
+                message: "Email nije validan",
+                info: config.token
+            });
+            flag = true;
+        }
+        else if (regexZaPassword.test(String(req.body.plainText)) == false) {
+            flag = true;
+            res.render('signup.ejs', { message: 'Password mora sadržavati sljedeće: najmanje jedno veliko slovo, najmanje jedan broj, najmanje jedan znak, dužinu od 8 ili više karaktera', info: config.token })
+        }
+
+        console.log('IZASO')
+        if (!flag) {
+            request.post({
+                url: 'http://localhost:5000/api/users',
+                body: req.body,
+                json: true
+            }, (err, result) => {
+                if (result.body.errmsg) {
+                    res.render('signup.ejs', { message: 'Eror upisa u bazu!' })
+                } else res.render('login.ejs', { message: 'Successful signup! Please login: ', created: result.body.created })
+
+            })
+        }
+
         request.post({
             url: 'http://localhost:5000/api/users',
             body: req.body,
@@ -107,7 +157,7 @@ module.exports = (app) => {
                 }
  
                 else if(regexZaPassword.test(String(req.body.plainText)) == false) {
-                    res.render('signup.ejs', {message: 'Password must contain at least one capital letter, one number, one symbol, and be longer than 8 symbols', info:config.token})
+            res.render('signup.ejs', { message: 'Password must contain at least one uppercase letter, one number, one symbol, and must be longer than 8 characters', info: config.token })
                 }else{
                   
                   
@@ -151,6 +201,7 @@ module.exports = (app) => {
             //    res.redirect('/adminUserView')
             //}
         })
+
     })
 
     app.get('/adminEditUser/:id', (req, res) => {
@@ -161,6 +212,7 @@ module.exports = (app) => {
             res.render('adminEditUser.ejs', { message: '', user: { id: k._id, name: k.name, email: k.email } })
         })
     })
+
 
     app.post('/adminEditUser', (req, res) => {
         //console.log(config.token)
@@ -256,7 +308,7 @@ module.exports = (app) => {
             body: req.body,
             json: true
         }, (err, result) => {
-                res.redirect('/clients');
+            res.redirect('/clients');
         })
 
     })
@@ -353,45 +405,56 @@ module.exports = (app) => {
 
 
     app.post('/adminUserAdd', (req, res) => {
+        let flag = false;
+
+        const regexZaIme = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
+        const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        const regexZaPassword = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+        console.log(req.body)
+
+        if (req.body.name === '' || req.body.email === '' || req.body.plainText === '') {
+            res.render('signup.ejs', { message: 'Molimo popunite sva polja!', info: config.token });
+            flag = true;
+        } else if (regexZaIme.test(String(req.body.name)) == false) {
+            res.render('signup.ejs', { message: 'Ime nije validno', info: config.token });
+            flag = true;
+        } else if (regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
+            res.render("signup.ejs", {
+                message: "Email nije validan",
+                info: config.token
+            });
+            flag = true;
+        }
+        else if (regexZaPassword.test(String(req.body.plainText)) == false) {
+            flag = true;
+            res.render('signup.ejs', { message: 'Password must contain at least one uppercase letter, one number, one symbol, and must be longer than 8 characters', info: config.token })
+        }
+        console.log('IZASO')
+        if (!flag) {
         request.post({
             url: 'http://localhost:5000/api/users',
             body: req.body,
             json: true
         }, (err, result) => {
-            const regexZaIme = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/
-            const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-            
-            if(result.body.errmsg && result.body.errmsg.includes('email')) {
-                res.render('adminUserAdd.ejs', { message:'Email već postoji!'})
- 
-            } else if(req.body.name == '' || req.body.email == '' || req.body.plainText == '') {
-                res.render('adminUserAdd.ejs', { message:'Molimo popunite sva polja!' , info:config.token})
-            }
-                else if(regexZaIme.test(String(req.body.name)) == false) {
-                res.render('adminUserAdd.ejs', { message: 'Ime nije validno', info:config.token})
-                }
-                else if(regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
-                res.render('adminUserAdd.ejs', { message: 'Email nije validan', info:config.token})
-                }else{
-                    res.redirect('/adminUserView')
-                }
-            //console.log(result.statusCode, result.body)
-        })
+            if (result.body.errmsg) {
+                res.render('signup.ejs', { message: 'Eror upisa u bazu!' })
+            } else res.redirect('/adminUserView')
+        })}
     })
 
     app.get('/adminEnableClient/:id', (req, res) => {
         var id = req.params.id
         let enb = true;
-        request.get('http://localhost:5000/api/clients/'+ id,(err,result) =>{
+        request.get('http://localhost:5000/api/clients/' + id, (err, result) => {
             let user = JSON.parse(result.body);
             //console.log(user)
-            if(user.enabled === true) enb = false;
+            if (user.enabled === true) enb = false;
             request.put({
-                url: 'http://localhost:5000/api/clients/'+ id,
-                headers:{ authorization : "bearer "+ config.token},
-                body: {enabled: enb},
+                url: 'http://localhost:5000/api/clients/' + id,
+                headers: { authorization: "bearer " + config.token },
+                body: { enabled: enb },
                 json: true
-         }, (err, result) => {
+            }, (err, result) => {
                 console.log(result.body)
                 res.redirect('/clients')
             })
