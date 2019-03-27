@@ -3,6 +3,7 @@
 
 <head>
     <% include partials/head %>
+<<<<<<< HEAD
     <% include partials/customCss %>
 </head>
 
@@ -45,5 +46,71 @@
         </div>
     </div>
     
+=======
+</head>
+
+<body>
+    <div class="container">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3>Welcome back, <%= info.currentUser.name %></h3>
+
+                    <!-- <h3 id="userID" style="display:none"><%= info.currentUser._id %></h3> -->
+                </div>
+                <div class="col-md-5" style="text-align: right">
+                    <a href="/adminEditUser/<%= info.currentUser._id %>"><h4><i class="fa fa-user-circle" aria-hidden="true"></i>Account</a>
+                    <a style="padding-left:20px" href="/login"><i class="fas fa-sign-out-alt"></i>Log out</h4></a>
+                </div>
+            </div>
+
+
+
+            <div class="row" style="margin-top:70px; border:1 px black">
+                <div class="col-md-3" align="center">
+                    <a href="/adminUserView">
+                        <div class="col-md-6" style="color:#b6b6b6">
+                            <h3><i class="fas fa-clipboard-list"></i><br>Users</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3" align="center">
+                    <a href="/clients">
+                        <div class="col-md-6" style=" color:#b6b6b6">
+                            <h3><i class="fas fa-edit"></i><br>Clients</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3" align="center">
+                    <a href="/adminUserAdd">
+                        <div class="col-md-6" style="color:#b6b6b6">
+                            <h3><i class="fas fa-user-plus"></i><br>New user</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 " align="center">
+                    <a href="/AddAClient">
+                        <div class="col-md-6" style="color:#b6b6b6">
+                            <h3><i class="fas fa-user-edit"></i><br>New client</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <a href="/assignments">
+                <div class="col-md-6" style="color:#b6b6b6">
+                    <h3><i class="fas fa-user-edit"></i><br>Assignments</h3>
+                </div>
+            </a>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous"></script>
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
 </body>
 </html>

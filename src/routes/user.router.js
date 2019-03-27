@@ -13,7 +13,11 @@ router.route('/api/users/:id')
     .put(ctrl.update)
     .delete(ctrl.remove)
 
+<<<<<<< HEAD
+router.route('/api/users/:id/clients')//works
+=======
 router.route('/api/users/:id/clients')
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
     .get(ctrl.clients)
 
 router.param('id', ctrl.getId)

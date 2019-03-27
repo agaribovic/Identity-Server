@@ -11,7 +11,10 @@ const UserSchema = new mongoose.Schema({
     salt: String,
     enabled: {type: Boolean, default: false},
     created: { type: Date, default: Date.now },
+<<<<<<< HEAD
     stringCreated:String,
+=======
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
     clients: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Access' }]
 })
 
