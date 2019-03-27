@@ -34,12 +34,14 @@ const addConcerns = (access) => {
 }
 
 const list = (req, res) => {
-    Access.find().populate('client', 'clientId name').populate('user', 'name')
+    Access.find().populate('client', 'clientId name ').populate('user', 'name')
         .exec((err, result) => {
             if (err) {
                 res.status(400).send(err)
             } else {
+              
                 res.status(200).send(result)
+              
             }
         })
 }
