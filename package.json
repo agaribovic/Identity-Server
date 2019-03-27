@@ -27,9 +27,13 @@
     "lodash": "^4.17.11",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.17",
+<<<<<<< HEAD
     "nodemailer": "^5.1.1",
     "request": "^2.88.0",
     "winston": "^3.2.1"
+=======
+    "request": "^2.88.0"
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
   },
   "description": ""
 }

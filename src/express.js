@@ -5,6 +5,7 @@ import clientRouter from './routes/client.router'
 import accessRouter from './routes/access.router'
 import authRouter from './routes/auth.router'
 import webRouter from './routes/web.routes'
+<<<<<<< HEAD
 //import logger from './helpers/logger';
 
 
@@ -21,15 +22,22 @@ import webRouter from './routes/web.routes'
 
 const app = express()
 
+=======
+
+const app = express()
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/', userRouter)
 app.use('/', clientRouter)
 app.use('/', accessRouter)
 app.use('/', authRouter)
+<<<<<<< HEAD
 app.use(express.static(__dirname + 'views'))
 //app.use('/',logStart)
 
+=======
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
 webRouter(app)
 
 export default app

@@ -3,6 +3,7 @@
 
 <head>
     <% include partials/head %>
+<<<<<<< HEAD
     <% include partials/customCss %>
 </head>
 
@@ -27,7 +28,6 @@
                     <th>Date Created</th>
                     <th>ClientName</th>
                     <th>Redirect</th>
-                    <th>DateCreated</th>
                     <th>Status</th>
                     <th class="text-right">Actions</th>
                 </tr>
@@ -36,7 +36,6 @@
                     <td><%= client.stringCreated %></td>
                     <td><%= client.name %></td>
                     <td><%= client.redirect %></td>
-                    <td><%= client.stringCreated %></td>
                     <td>
                         <a href="/adminEnableClient/<%= client._id %>">
                             <% if(client.enabled === false){ %>
@@ -47,22 +46,61 @@
                         </a>
                     </td>
                     <td>
+                        <a href="/clientsUsers/<%= client._id %>">
+                            <i class="fas fa-list"></i>
+                        </a>
                         <a href="/editClient/<%= client._id %>">
                             <i class="fas fa-edit"></i>
                         </a>
                         <a href="/deleteClient/<%= client._id %>" class="custom-trash">
+=======
+
+</head>
+
+<body>
+    <div class="container" style="position: absolute">
+
+        <div class="col-sm-6 col-sm-offset-3">       
+            <h1 align="center"> Client List </h1>
+            <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back
+            </a>
+            <a style="float:right" href="/AddAClient"><i class="fas fa-user-plus"></i> Add a new client
+            </a>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>ClientName</th>
+                    <th>Redirect</th>
+                    <th>DateCreated</th>
+                    <th>Actions</th>
+                </tr>
+                <% clients.forEach(function(client) { %>
+                <tr>
+                    <td><%= client._id %></td>
+                    <td><%= client.name %></td>
+                    <td><%= client.redirect %></td>
+                    <td><%= client.stringCreated %></td>
+                    <td>
+                        <a href="/editClient/<%= client._id %>">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="/deleteClient/<%= client._id %>">
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
                             <i class="fas fa-trash-alt"></i>
                         </a>
                     </td>
                 </tr>
                 <% }) %>
             </table>
+<<<<<<< HEAD
 
             <div class="footer mt-40">
                 <div class="col-md-6 offset-md-3 text-center">
                     <p>© 2019 Copyright By Apollo Team</p>
                 </div>
             </div>
+=======
+>>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
         </div>
     </div>
 </body>
