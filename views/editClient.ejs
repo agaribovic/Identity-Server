@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <% include partials/head %>
+    <% include partials/customCss %>
+<script>
+document.getElementById('datePicker').value =new Date().toDateInputValue();
+document.getElementById('datePicker').value =Date().now
+</script>
+</head>
+<body>
+    <div class="container custom-form">
+
+        <div class="custom-container">
+
+            <h2>Client profile</h2>
+            <div class="row mt-10 mb-10">
+                <div class="col-md-6">
+                        <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a style="float:right" href="/clients"><i class="fas fa-cogs"></i> Clients</a>
+                </div>
+            </div>
+      
+
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
+
+        <!-- LOGIN FORM -->
+        <form action="/editClient" method="post">
+            <!-- <div class="form-group">
+                <label>ClientCode</label>
+                <input type="text" class="form-control" name="ClientCode">
+            </div> -->
+
+            <div class="form-group">
+
+                <label>Client Name</label>
+                <input type="text" class="form-control" name="name" value="<%= client.name %>">
+            </div>       
+            <div class="form-group">
+                <!-- <label>Claims</label> -->
+                <input type="hidden" class="form-control" name="claims"value="<%= client.claims%>">
+            </div>
+            <div class="form-group">
+                <!-- <label>Secret</label> -->
+                <input type="hidden" class="form-control" name="secret"value="<%= client.secret%>">
+            </div>
+            <div class="form-group">
+                <label>Redirect</label>
+                <input type="text" class="form-control" name="redirect"value="<%= client.redirect%>">
+            </div>
+            <div class="form-group">
+
+                <label></label>
+                <input  type="hidden" class="form-control" name="id" value="<%= client.id%>">
+            </div> 
+
+            <!-- <div class="form-group">
+                <label>DateCreated</label>
+                <input type="date" class="form-control" id="datePicker" >
+            </div> -->
+            <button type="submit" class="btn btn-custom-primary">Submit</button>
+        </form>
+        <hr>
+
+        <div class="footer mt-40">
+                <div class="text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+
+

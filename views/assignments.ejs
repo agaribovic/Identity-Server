@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/head %>
+    <% include partials/customCss %>
+</head>
+<body>
+   <div class="container custom-form assignment">
+       <div class="custom-container">
+           <h2 class="text-center">Assignments</h2>
+           <div class="row">
+                <div class="col-md-6">
+                    <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
+                </div>
+            </div> 
+
+           <!-- show any messages that come back with authentication -->
+           <% if (message.length > 0) { %>
+               <div class="alert alert-danger"><%= message %></div>
+           <% } %>
+
+           <!-- DROPDOWN FORM -->
+           <form class="mt-20" action="/assignments" method="post">
+               <div class="row">
+                    <div class="col-md-4">
+                        <div class="dropdown">
+                            <label for="">Users: </label><br>
+                            <select name="user" class="form-control" required>
+                                <option class ="notSelected" value="" selected>Select a user</option>                              
+                                
+
+                                <% users.forEach(function(user) { %>
+                                <option type="text" value="<%= user._id %>" ><%= user.name%></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                    </div>
+                   <div class="col-md-4">
+                        <div class="dropdown">
+                            <label for="">Clients: </label><br>
+
+                                <select name="client" class="form-control" required>
+                                <!-- <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Clients<span class="caret"></span></button> -->
+
+                                <option class ="notSelected" value="" selected>Select a client</option>                            
+
+                                <% clients.forEach(function(client) { %>
+                                <option type="text" value="<%= client._id %>" ><%= client.name%></option>
+                                <% }) %>
+                                </select>
+                        </div>
+                    </div>
+                   <div class="col-md-4">
+                       <div class="dropdown">
+                           <label for="">Roles: </label><br>
+
+                                <select name="scopes" class="form-control" required>
+
+                                    <option class ="notSelected" value="" selected>Select a role</option>                                 
+                                   <option type="text" value="Admin">Admin</option>
+
+                                    <option type="text" value="User">User</option>
+                                </select>
+                       </div>
+                   </div>
+               </div>
+               <br>
+               <div class="row">
+                   <div class="col-md-8"></div>
+                   <div class="col-md-4 text-right"><button type="submit" class="btn btn-custom-primary">Assign</button></div>
+               </div>
+           </form>
+
+           <div class="footer mt-40">
+                <div class="text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

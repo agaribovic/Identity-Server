@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/head %>
+    <% include partials/customCss %>
+</head>
+
+<body>
+    <div class="container admin-panel-form">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-md-7 welcome-title">
+                    <h3>Welcome back, <%= info.currentUser.name %></h3>
+                </div>
+                <div class="col-md-5 text-right admin-icons">
+                    <a href="/userSelfEdit/<%= info.currentUser._id %>"><h4><i class="fa fa-user-circle" aria-hidden="true"></i> Account</a>
+                    <a style="padding-left:20px" href="/login"><i class="fas fa-sign-out-alt"></i> Log out</h4></a>
+                </div>
+            </div>
+
+            <div class="row mt-60 mb-60">
+                <div class="custom-col admin-box text-center">
+                    <a href="/adminUserView"><h4><i class="fas fa-clipboard-list"></i><br>Users</h4></a> 
+                </div>
+                <div class="custom-col admin-box text-center">
+                    <a href="/clients"><h4><i class="fas fa-folder"></i><br>Clients</h4></a> 
+                </div>
+                <div class="custom-col admin-box text-center">
+                    <a href="/adminUserAdd"><h4><i class="fas fa-user-plus"></i><br>New User</h4></a> 
+                </div>
+                <div class="custom-col admin-box text-center">
+                    <a href="/AddAClient"><h4><i class="fas fa-folder-plus"></i><br>New Client</h4></a> 
+                </div>
+                <div class="custom-col admin-box text-center">
+                    <a href="/assignments"><h4><i class="fas fa-puzzle-piece"></i><br>Assignments</h4></a> 
+                </div>
+                
+            </div>
+            <div class="footer">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <p>© 2019 Copyright By Apollo Team</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
