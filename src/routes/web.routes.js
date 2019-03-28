@@ -280,53 +280,96 @@ module.exports = app => {
             },
             (err, result) => {
                 console.log(result.body);
+                res.redirect('/adminUserView')
             }
-        );
-        res.redirect("/clients");
-    });
+        )
+    })
 
-    app.get("/deleteClient", (req, res) => {
-        res.render("deleteClient.ejs", { message: "" });
-    });
+    //ZAKINE
+    app.get('/editClient/:id', (req, res) => {
+        var id = req.params.id
+        request.get('http://localhost:5000/api/clients/' + id, (err, result) => {
+            let client = JSON.parse(result.body)
+            console.log(client)
+            res.render('editClient.ejs', { message: '', client: { id: client._id, name: client.name, claims: client.claims, secret: client.secret, redirect: client.redirect } })
+        })
+    })
 
-    app.get("/clients", (req, res) => {
-        //ORIGINAL
-        request.get("http://localhost:5000/api/clients", (err, result) => {
-            res.render("clients.ejs", { clients: JSON.parse(result.body) });
-        });
-    });
+    app.post('/editClient', (req, res) => {
+        request.put({
+            url: 'http://localhost:5000/api/clients/' + req.body.id,
+            body: req.body,
+            json: true
+        }, (err, result) => {
+            console.log(err)
+            res.redirect('/clients')
+        })
+    })
 
-   
+    app.get('/editClient', (req, res) => { res.render('editClient.ejs', { message: '' }) })
 
-    app.get("/AddAClient", (req, res) => {
-        res.render("AddAClient.ejs", { message: "" });
-    });
+    app.get('/deleteClient/:id', (req, res) => {
+        request.delete({
+            url: 'http://localhost:5000/api/clients/' + req.params.id,
+            json: true,
+            headers: { authorization: "bearer " + config.token }
+        }, (err, result) => {
+            console.log(result.body);
+        })
+        res.redirect('/clients')
+    })
 
-    app.post("/AddAClient", (req, res) => {
-        request.post(
-            {
-                url: "http://localhost:5000/api/clients",
-                body: req.body,
-                json: true
-            },
-            (err, result) => {
-                res.redirect("/clients");
-            }
-        );
-    });
+    app.get('/deleteClient', (req, res) => { res.render('deleteClient.ejs', { message: '' }) })
 
-    app.get("/assignments", (req, res) => {
-        request.get("http://localhost:5000/api/users", (err, result) => {
+    app.get('/clients', (req, res) => {
+        request.get('http://localhost:5000/api/clients', (err, result) => {
+            res.render('clients.ejs', { clients: JSON.parse(result.body) })
+        })
+    })
+
+    app.get('/AddAClient', (req, res) => { res.render('AddAClient.ejs', { message: '' }) })
+
+    app.post('/AddAClient', (req, res) => {
+        request.post({
+            url: 'http://localhost:5000/api/clients',
+            body: req.body,
+            json: true
+        }, (err, result) => {
+            res.redirect('/clients');
+        })
+
+    })
+
+
+    app.get('/assignments', (req, res) => {
+        request.get('http://localhost:5000/api/users', (err, result) => {
             var all_users = JSON.parse(result.body);
-            request.get("http://localhost:5000/api/clients", (err, result) => {
-                res.render("assignments.ejs", {
-                    message: "",
-                    users: all_users,
-                    clients: JSON.parse(result.body)
-                });
-            });
-        });
-    });
+            console.log(all_users);
+            request.get('http://localhost:5000/api/clients', (err, result) => {
+                res.render('assignments.ejs', { message: '', users: all_users, clients: JSON.parse(result.body) })
+            })
+        })
+
+    })
+    app.get('/assignments/:id', (req, res) => {
+        request.get('http://localhost:5000/api/users/' + req.params.id, (err, result) => {
+            var user = [JSON.parse(result.body)];
+            console.log(user);
+            request.get('http://localhost:5000/api/clients', (err, result) => {
+                res.render('assignments.ejs', { message: '', users: user, clients: JSON.parse(result.body) })
+            })
+        })
+    })
+
+    app.get('/classignments/:id', (req, res) => {
+        request.get('http://localhost:5000/api/clients/' + req.params.id, (err, result) => {
+            var client = [JSON.parse(result.body)];
+            //console.log(user);
+            request.get('http://localhost:5000/api/users', (err, result) => {
+                res.render('assignments.ejs', { message: '', users: JSON.parse(result.body), clients: client})
+            })
+        })
+    })
 
     app.post("/assignments", (req, res) => {
         let accId;
