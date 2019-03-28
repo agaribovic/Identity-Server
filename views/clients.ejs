@@ -41,7 +41,7 @@
                         <a href="/adminEnableClient/<%= client._id %>">
                             <% if(client.enabled === false){ %>
                             <i class="btn btn-custom-disabled">Disabled</i>
-                            <% }else{ %>
+                            <% } else { %>
                             <i class="btn btn-custom-enabled">Enabled</i>
                             <% } %>
                         </a>
@@ -52,6 +52,9 @@
                         </a>
                         <a href="/deleteClient/<%= client._id %>" class="custom-trash">
                             <i class="fas fa-trash-alt"></i>
+                        </a>
+                        <a href="/classignments/<%= client._id %>">¸
+                            <i class="fas fa-puzzle-piece" ></i>
                         </a>
                     </td>
                 </tr>

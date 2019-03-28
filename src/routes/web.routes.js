@@ -262,11 +262,31 @@ module.exports = (app) => {
     app.get('/assignments', (req, res) => {
         request.get('http://localhost:5000/api/users', (err, result) => {
             var all_users = JSON.parse(result.body);
+            console.log(all_users);
             request.get('http://localhost:5000/api/clients', (err, result) => {
                 res.render('assignments.ejs', { message: '', users: all_users, clients: JSON.parse(result.body) })
             })
         })
 
+    })
+    app.get('/assignments/:id', (req, res) => {
+        request.get('http://localhost:5000/api/users/' + req.params.id, (err, result) => {
+            var user = [JSON.parse(result.body)];
+            console.log(user);
+            request.get('http://localhost:5000/api/clients', (err, result) => {
+                res.render('assignments.ejs', { message: '', users: user, clients: JSON.parse(result.body) })
+            })
+        })
+    })
+
+    app.get('/classignments/:id', (req, res) => {
+        request.get('http://localhost:5000/api/clients/' + req.params.id, (err, result) => {
+            var client = [JSON.parse(result.body)];
+            //console.log(user);
+            request.get('http://localhost:5000/api/users', (err, result) => {
+                res.render('assignments.ejs', { message: '', users: JSON.parse(result.body), clients: client})
+            })
+        })
     })
 
     app.post('/assignments', (req, res) => {
@@ -406,4 +426,7 @@ module.exports = (app) => {
             })
         })
     })
+
+    
+
 }
