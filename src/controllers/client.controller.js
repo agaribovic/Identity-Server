@@ -1,8 +1,9 @@
 import Client from '../models/client.model'
 import base64 from '../helpers/base64'
-import Access from '../models/access.model'
-import _ from 'lodash'
 
+import Access from '../models/access.model'
+
+import _ from 'lodash'
 const create = (req, res) => {
     let client = new Client(req.body)
     client.secret = base64.encode(client.secret)
@@ -16,7 +17,7 @@ const create = (req, res) => {
 
 
 const list = (req, res) => {
-    Client.find()//.populate('client')
+    Client.find()
         .exec((err, result) => {
             if (err) {
                 return res.status(400).send(err)

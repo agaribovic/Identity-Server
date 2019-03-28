@@ -41,7 +41,6 @@ const list = (req, res) => {
             } else {
               
                 res.status(200).send(result)
-              
             }
         })
 }
