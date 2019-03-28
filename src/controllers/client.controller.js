@@ -1,34 +1,23 @@
 import Client from '../models/client.model'
 import base64 from '../helpers/base64'
-<<<<<<< HEAD
-import Access from '../models/access.model'
-=======
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
-import _ from 'lodash'
 
+import Access from '../models/access.model'
+
+import _ from 'lodash'
 const create = (req, res) => {
     let client = new Client(req.body)
     client.secret = base64.encode(client.secret)
-<<<<<<< HEAD
     client.stringCreated = client.created.toString().substring(3, 15)
-=======
-    client.stringCreated=client.created.toString().substring(3,15)
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
-    client.save((err, result) => {
-        if (err) {
-            return res.status(400).send(err)
-        } else {
-            return res.status(200).send(result)
-        }
-    })
+    if (err) {
+        res.status(400).send(err)
+    } else {
+        return res.status(200).send(result)
+    }
 }
 
+
 const list = (req, res) => {
-<<<<<<< HEAD
-    Client.find()//.populate('client')
-=======
     Client.find()
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
         .exec((err, result) => {
             if (err) {
                 return res.status(400).send(err)
@@ -77,7 +66,6 @@ const remove = (req, res) => {
     })
 }
 
-<<<<<<< HEAD
 
 const users = (req, res) => {//sumejja
     //console.log(req)
@@ -105,6 +93,3 @@ const users = (req, res) => {//sumejja
 }
 
 export default { list, create, clientById, read, update, remove, users }
-=======
-export default { list, create, clientById, read, update, remove }
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2

@@ -34,22 +34,13 @@ const addConcerns = (access) => {
 }
 
 const list = (req, res) => {
-<<<<<<< HEAD
     Access.find().populate('client', 'clientId name ').populate('user', 'name')
-=======
-    Access.find().populate('client', 'clientId name').populate('user', 'name')
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
         .exec((err, result) => {
             if (err) {
                 res.status(400).send(err)
             } else {
-<<<<<<< HEAD
               
                 res.status(200).send(result)
-              
-=======
-                res.status(200).send(result)
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
             }
         })
 }

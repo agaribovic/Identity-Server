@@ -3,10 +3,7 @@
 
 <head>
     <% include partials/head %>
-<<<<<<< HEAD
     <% include partials/customCss %>
-=======
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
     <script>
         document.getElementById('datePicker').value = new Date().toDateInputValue();
         document.getElementById('datePicker').value = Date().now
@@ -14,10 +11,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="container custom-form">
         <div class="custom-container">
-            <h2 class="text-center">New Client</h2>
+                <h2>Add a new client</h2>
             <div class="row mt-10 mb-10">
                 <div class="col-md-6">
                         <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
@@ -27,19 +23,8 @@
                 </div>
             </div>
             
-=======
     <div class="container">
-
-        <div class="col-sm-6 col-sm-offset-3">
-
-            <h1 align="center"><span class="fa fa-sign-in"></span> New Client Registration</h1>
-
-            <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
-            <a style="float:right" href="/clients"><i class="fas fa-cogs"></i> Clients</a>
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
-            <% if (message.length > 0) { %>
-            <div class="alert alert-danger"><%= message %></div>
-            <% } %>
+     
 
             <!-- LOGIN FORM -->
             <form action="/AddAClient" method="post">
@@ -48,11 +33,7 @@
             <input type="text" class="form-control" name="ClientCode">
         </div> -->
                 <div class="form-group">
-<<<<<<< HEAD
                     <label>Client Name</label>
-=======
-                    <label>ClientName</label>
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
                     <input type="text" class="form-control" name="name" required>
                 </div>
                 <div class="form-group">
@@ -72,7 +53,6 @@
             <input type="date" class="form-control" id="datePicker" >
         </div> -->
 
-<<<<<<< HEAD
                 <button type="submit" class="btn btn-custom-primary">Submit</button>
             </form>
 
@@ -84,15 +64,6 @@
         </div>
     </div>
         
-=======
-                <button type="submit" class="btn btn-warning btn-lg">Submit</button>
-            </form>
-            <hr>
-
-        </div>
-
-    </div>
->>>>>>> 2136aea0917477c9e744015badb23856e768b6f2
 </body>
 
 </html>
