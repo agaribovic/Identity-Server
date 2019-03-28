@@ -1,7 +1,7 @@
 import request from "request";
 import config from "../../config";
 import nodemailer from "nodemailer";
-//PONESI U HEDERU I TOKEN
+
 module.exports = app => {
     app.get("/", (req, res) => {
         res.render("login.ejs", { message: "", info: config.token });
@@ -561,6 +561,7 @@ module.exports = app => {
             "http://localhost:5000/api/clients/" + req.params.id + "/users",
             (err, result) => {
                  let sendResult = JSON.parse(result.body);
+                 console.log(sendResult.users)
                  res.render("clientsUsers.ejs", { props: sendResult.users });
             }
         );
