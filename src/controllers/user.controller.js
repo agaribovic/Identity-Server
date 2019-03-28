@@ -59,16 +59,15 @@ const update = (req, res) => {
 
 const remove = (req, res) => {
     let user = req.profile
-    //console.log("DOSOO DO REMOVEEAAAAA")
     user.remove((err, deletedUser) => {
         if (err) res.status(400).send(err)
-        //deletedUser.password = undefined
+        deletedUser.password = undefined
         deletedUser.salt = undefined
         res.send(deletedUser)
     })
 }
 
-const clients = (req, res) => {
+const clients = (req, res) => {//prof's
     let result = {
         user: {
             name: req.profile.name,
@@ -79,7 +78,7 @@ const clients = (req, res) => {
     }
     Access.find({ user: req.profile._id })
         .select('scopes')
-        .populate('client', 'clientId name')
+        .populate('client', 'clientId name redirect stringCreated')//additional population fields
         .exec((err, data) => {
             if (!err) result.clients = data
             res.status(200).send(result)

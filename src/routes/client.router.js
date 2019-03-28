@@ -13,6 +13,9 @@ router.route('/api/clients/:clientId')
     .put(ctrl.update)
     .delete(ctrl.remove)
 
+    router.route('/api/clients/:clientId/users')
+    .get(ctrl.users)
+
 router.param('clientId', ctrl.clientById)
 
 export default router

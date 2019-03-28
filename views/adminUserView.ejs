@@ -5,19 +5,20 @@
     <% include partials/head %>
     <% include partials/customCss %>
 </head>
+
 <body>
     <div class="container admin-panel-form">
         <div class="custom-container">
             <h2 align="center">User List</h2>
             <div class="row">
                 <div class="col-md-6">
-                        <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
-                    </div>
-                    <div class="col-md-6">
-                        <a style="float:right" href="/adminUserAdd"><i class="fas fa-user-plus"></i> Add a new user</a>
+                    <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
+                </div>
+                <div class="col-md-6">
+                    <a style="float:right" href="/adminUserAdd"><i class="fas fa-user-plus"></i> Add a new user</a>
                 </div>
             </div>
-                        
+
             <table class="table custom-table mt-20">
                 <tr>
                     <th>Date created</th>
@@ -34,13 +35,16 @@
                     <td>
                         <a href="/adminEnableUser/<%= user._id %>">
                             <% if(user.enabled === false){ %>
-                                <i class="btn btn-custom-disabled">Disabled</i>
-                                <% }else{ %>
-                                <i class="btn btn-custom-enabled">Enabled</i>
+                            <i class="btn btn-custom-disabled">Disabled</i>
+                            <% }else{ %>
+                            <i class="btn btn-custom-enabled">Enabled</i>
                             <% } %>
                         </a>
                     </td>
                     <td>
+                        <a href="/usersClients/<%= user._id %>">
+                            <i class="fas fa-list"></i>
+                        </a>
                         <a href="/adminEditUser/<%= user._id %>">
                             <i class="fas fa-edit"></i>
                         </a>
@@ -62,6 +66,7 @@
             </div>
         </div>
     </div>
-        
+
 </body>
+
 </html>

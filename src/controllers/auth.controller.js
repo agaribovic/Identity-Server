@@ -8,7 +8,9 @@ const login = (req, res) => {
   let password = req.body.password;
   User.findOne({ email: username }, (err, data) => {
     if (err || !data) {
+
       res.status(401).send("User does not exist");
+
     } else {
       if (data.authenticate(password)) {
         config.currentUser = {
@@ -19,6 +21,7 @@ const login = (req, res) => {
           name: data.name,
           exp: new Date().getTime() / 1000 + 3600
         };
+
        // console.log(config.currentUser)
         let token = jwt.sign(config.currentUser, config.secret);
         res.status(200).send(token);
@@ -49,6 +52,7 @@ const loginMail = (req, res) => {
         res.status(200).send(token);
       } else {
         res.status(401).send("User does not exist");
+
       }
     }
   });
@@ -65,7 +69,7 @@ const signed = (req, res, next) => {
         res.status(401).send("Invalid token");
       } else {
         config.currentUser = result;
-        //console.log(config.currentUser)//verify ovdje 
+
         let exp = result.exp - new Date().getTime() / 1000;
         next();
       }
@@ -73,4 +77,6 @@ const signed = (req, res, next) => {
   }
 };
 
+
 export default { login, signed,loginMail };
+
