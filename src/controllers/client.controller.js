@@ -7,14 +7,13 @@ const create = (req, res) => {
     let client = new Client(req.body)
     client.secret = base64.encode(client.secret)
     client.stringCreated = client.created.toString().substring(3, 15)
-    client.save((err, result) => {
-        if (err) {
-            return res.status(400).send(err)
-        } else {
-            return res.status(200).send(result)
-        }
-    })
+    if (err) {
+        res.status(400).send(err)
+    } else {
+        return res.status(200).send(result)
+    }
 }
+
 
 const list = (req, res) => {
     Client.find()//.populate('client')

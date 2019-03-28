@@ -13,7 +13,7 @@
 <body>
     <div class="container custom-form">
         <div class="custom-container">
-            <h2 class="text-center">New Client</h2>
+                <h2>Add a new client</h2>
             <div class="row mt-10 mb-10">
                 <div class="col-md-6">
                         <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Admin panel</a>
@@ -23,9 +23,8 @@
                 </div>
             </div>
             
-            <% if (message.length > 0) { %>
-            <div class="alert alert-danger"><%= message %></div>
-            <% } %>
+    <div class="container">
+     
 
             <!-- LOGIN FORM -->
             <form action="/AddAClient" method="post">
