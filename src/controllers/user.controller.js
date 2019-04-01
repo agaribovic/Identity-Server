@@ -1,5 +1,6 @@
 import User from '../models/user.model'
 import Access from '../models/access.model'
+import Client from '../models/client.model'
 import logger from '../helpers/logger'
 import _ from 'lodash'
 
@@ -63,6 +64,40 @@ const remove = (req, res) => {
         if (err) res.status(400).send(err)
         deletedUser.password = undefined
         deletedUser.salt = undefined
+
+    
+        let clientsi = deletedUser.clients;
+        for(let i = 0; i < clientsi.length; i++){
+            Access.findByIdAndRemove(clientsi[i]._id ,(err, result) =>{
+                if(err){
+                    res.status(400).send(err);
+                }else{
+
+
+                    let accessId = result._id;
+                    let clientId = result.client;
+                    let arrayOfUsers;
+                    Client.findById(clientId, (err, result2) =>{
+                        if(err){
+                            res.status(400).send(err);
+                        }else{
+                            arrayOfUsers = result2.users;
+                            for(let j = 0; j < arrayOfUsers.length; j++){
+                                if(arrayOfUsers[j].toString() == accessId.toString()){
+                                    arrayOfUsers.splice(j,1);
+                                    break;
+                                }
+                            }
+                        }
+                        result2.save((err) =>{
+                            if(err){
+                                res.status(400).send(err);
+                            }
+                        })
+                    })
+                }
+            })
+        }
         res.send(deletedUser)
     })
 }

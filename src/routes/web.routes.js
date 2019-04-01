@@ -11,6 +11,48 @@ module.exports = app => {
         res.render("login.ejs", { message: "", info: config.token });
     });
 
+    app.get("/index", (req, res) => {
+        res.render("index.ejs", { message: "" });
+    });
+
+    app.get("/profile", (req, res) => {
+        res.render("profile.ejs", { message: "" });
+    });
+
+    app.get("/signup", (req, res) => {
+        res.render("signup.ejs", { message: "" });
+    });
+
+    app.get("/adminUserAdd", (req, res) => {
+        res.render("adminUserAdd.ejs", { message: "" });
+    });
+
+    app.get("/users", (req, res) => {
+        request.get("http://localhost:5000/api/users", (err, result) => {
+            res.render("users.ejs", { users: JSON.parse(result.body) });
+        });
+    });
+
+    app.get("/adminUserView", (req, res) => {
+        request.get("http://localhost:5000/api/users", (err, result) => {
+            res.render("adminUserView.ejs", { users: JSON.parse(result.body) });
+        });
+    });
+
+    app.get("/deleteUser/:id", (req, res) => {
+        request.delete(
+            {
+                url: "http://localhost:5000/api/users/" + req.params.id,
+                json: true,
+                headers: { authorization: "bearer " + config.token }
+            },
+            (err, result) => {
+                
+            }
+        );
+        res.redirect("/adminUserView");
+    });
+
     app.post("/login", (req, res) => {
         request.post(
             {
@@ -32,25 +74,6 @@ module.exports = app => {
             }
         );
     });
-    //#region 
-    // app.post('/loginMail/:mail', (req, res) => {
-    //     request.post({
-    //         url: 'http://localhost:5000/auth/loginMail/' + '?mail=' + req.query.email,
-    //         body: req.body,
-    //         json: true
-    //     }, (err, result) => {
-    //         if (result.statusCode == 401) {
-    //             res.render('login.ejs', { message: 'User does not exist', info: config.token })
-    //         }
-    //         else {
-
-    //             config.token = result.body
-    //             res.redirect('/adminPanel')
-    //         }
-    //         console.log(result.statusCode)
-    //     })
-    // })
-    //#endregion
 
     app.post("/signup", (req, res) => {
         let flag = false;
@@ -266,6 +289,7 @@ app.get("/editClient/:id", (req, res) => {
         res.render("editClient.ejs", { message: "" });
     });
 
+   
     //ZAKINE
     app.get('/editClient/:id', (req, res) => {
         var id = req.params.id
@@ -289,16 +313,20 @@ app.get("/editClient/:id", (req, res) => {
 
     app.get('/editClient', (req, res) => { res.render('editClient.ejs', { message: '' }) })
 
-    app.get('/deleteClient/:id', (req, res) => {
-        request.delete({
-            url: 'http://localhost:5000/api/clients/' + req.params.id,
-            json: true,
-            headers: { authorization: "bearer " + config.token }
-        }, (err, result) => {
-            console.log(result.body);
-        })
-        res.redirect('/clients')
-    })
+    
+    app.get("/deleteClient/:id", (req, res) => {
+        request.delete(
+            {
+                url: "http://localhost:5000/api/clients/" + req.params.id,
+                json: true,
+                headers: { authorization: "bearer " + config.token }
+            },
+            (err, result) => {
+                console.log(result.body);
+            }
+        );
+        res.redirect("/clients");
+    });
 
     app.get('/deleteClient', (req, res) => { res.render('deleteClient.ejs', { message: '' }) })
 
@@ -318,7 +346,6 @@ app.get("/editClient/:id", (req, res) => {
         }, (err, result) => {
             res.redirect('/clients');
         })
-
     })
 
 //#endregion
@@ -326,17 +353,17 @@ app.get("/editClient/:id", (req, res) => {
     app.get('/assignments', (req, res) => {
         request.get('http://localhost:5000/api/users', (err, result) => {
             var all_users = JSON.parse(result.body);
-            console.log(all_users);
+            //console.log(all_users);
             request.get('http://localhost:5000/api/clients', (err, result) => {
                 res.render('assignments.ejs', { message: '', users: all_users, clients: JSON.parse(result.body) })
             })
         })
-
     })
+
     app.get('/assignments/:id', (req, res) => {
         request.get('http://localhost:5000/api/users/' + req.params.id, (err, result) => {
             var user = [JSON.parse(result.body)];
-            console.log(user);
+            //console.log(user);
             request.get('http://localhost:5000/api/clients', (err, result) => {
                 res.render('assignments.ejs', { message: '', users: user, clients: JSON.parse(result.body) })
             })
@@ -355,6 +382,8 @@ app.get("/editClient/:id", (req, res) => {
 
     app.post("/assignments", (req, res) => {
         let accId;
+        console.log("tijelo: ");
+        console.log(req.body);
 
         req.body.scopes = { role: req.body.scopes, action: "", team: "" };
 
@@ -367,6 +396,7 @@ app.get("/editClient/:id", (req, res) => {
             },
             (err, result) => {
                 accId = result.body._id;
+            });
 
                 request.put(
                     {
@@ -375,7 +405,9 @@ app.get("/editClient/:id", (req, res) => {
                         body: { clients: accId },
                         json: true
                     },
-                    (err, result) => { }
+                    (err, result) => { 
+                        
+                    }
                 );
 
                 request.put(
@@ -389,9 +421,8 @@ app.get("/editClient/:id", (req, res) => {
                         res.redirect("/adminPanel");
                     }
                 );
-            }
-        );
-    });
+            
+            });
     app.get("/adminPanel", (req, res) => {
         res.render("adminPanel.ejs", {
             message: "",
@@ -527,6 +558,7 @@ app.get("/editClient/:id", (req, res) => {
             );
         });
     });
+
     app.get("/usersClients/:id", (req, res) => {
         request.get(
             "http://localhost:5000/api/users/" + req.params.id + "/clients",
