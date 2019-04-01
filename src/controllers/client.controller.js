@@ -19,7 +19,7 @@ const create = (req, res) => {
 
 
 const list = (req, res) => {
-    Client.find()//.populate('client')
+    Client.find()
         .exec((err, result) => {
             if (err) {
                 return res.status(400).send(err)

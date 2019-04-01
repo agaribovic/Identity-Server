@@ -12,3 +12,5 @@ app.listen(config.port, (err) => {
     if(err) console.log(err)
     console.log('Server is running on port',config.port)
 })
+
+export default app

@@ -1,7 +1,7 @@
 import request from "request";
 import config from "../../config";
 import nodemailer from "nodemailer";
-//PONESI U HEDERU I TOKEN
+
 module.exports = app => {
     app.get("/", (req, res) => {
         res.render("login.ejs", { message: "", info: config.token });
@@ -74,7 +74,6 @@ module.exports = app => {
             }
         );
     });
-    
 
     app.post("/signup", (req, res) => {
         let flag = false;
@@ -165,6 +164,35 @@ module.exports = app => {
         }
     });
 
+    app.get("/index", (req, res) => {
+        res.render("index.ejs", { message: "" });
+    });
+
+    app.get("/profile", (req, res) => {
+        res.render("profile.ejs", { message: "" });
+    });
+
+    app.get("/signup", (req, res) => {
+        res.render("signup.ejs", { message: "" });
+    });
+//USERS
+//#region 
+    app.get("/adminUserAdd", (req, res) => {
+        res.render("adminUserAdd.ejs", { message: "" });
+    });
+
+    app.get("/users", (req, res) => {
+        request.get("http://localhost:5000/api/users", (err, result) => {
+            res.render("users.ejs", { users: JSON.parse(result.body) });
+        });
+    });
+
+    app.get("/adminUserView", (req, res) => {
+        request.get("http://localhost:5000/api/users", (err, result) => {
+            res.render("adminUserView.ejs", { users: JSON.parse(result.body) });
+        });
+    });
+
     app.get("/adminEditUser/:id", (req, res) => {
         var id = req.params.id;
         request.get("http://localhost:5000/api/users/" + id, (err, result) => {
@@ -176,6 +204,24 @@ module.exports = app => {
             });
         });
     });
+
+    app.get("/deleteUser/:id", (req, res) => {
+        request.delete(
+            {
+                url: "http://localhost:5000/api/users/" + req.params.id,
+                json: true,
+                headers: { authorization: "bearer " + config.token }
+            },
+            (err, result) => {
+                //console.log(result.body);
+            }
+        );
+        res.redirect("/adminUserView");
+    });
+
+  
+
+
 
     app.post("/adminEditUser", (req, res) => {
         //console.log(config.token)
@@ -218,8 +264,10 @@ module.exports = app => {
             }
         );
     });
-
-    app.get("/editClient/:id", (req, res) => {
+//#endregion
+    //CLIENTS
+    //#region 
+app.get("/editClient/:id", (req, res) => {
         var id = req.params.id;
         request.get("http://localhost:5000/api/clients/" + id, (err, result) => {
             let client = JSON.parse(result.body);
@@ -235,20 +283,6 @@ module.exports = app => {
                 }
             });
         });
-    });
-
-    app.post("/editClient", (req, res) => {
-        request.put(
-            {
-                url: "http://localhost:5000/api/clients/" + req.body.id,
-                body: req.body,
-                json: true
-            },
-            (err, result) => {
-                console.log(err);
-                res.redirect("/clients");
-            }
-        );
     });
 
     app.get("/editClient", (req, res) => {
@@ -314,7 +348,8 @@ module.exports = app => {
         })
     })
 
-
+//#endregion
+    
     app.get('/assignments', (req, res) => {
         request.get('http://localhost:5000/api/users', (err, result) => {
             var all_users = JSON.parse(result.body);
@@ -540,6 +575,7 @@ module.exports = app => {
             "http://localhost:5000/api/clients/" + req.params.id + "/users",
             (err, result) => {
                  let sendResult = JSON.parse(result.body);
+                 console.log(sendResult.users)
                  res.render("clientsUsers.ejs", { props: sendResult.users });
             }
         );
