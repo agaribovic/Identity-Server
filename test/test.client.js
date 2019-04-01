@@ -62,13 +62,10 @@ describe("#clients", function () {
     describe("/DELETE/:id client", () => {
       this.timeout(5000);
       it("it should delete a client based on the given id", async () => {
-        chai
+        const result = await chai
           .request(app)
           .delete(`/api/clients/5c9ce5d634ebf14458546abc`)
-          .end((err, res) => {
-            res.should.have.status(200);
-            //console.log(res.body)
-          });
+        result.should.have.status(200);
       });
     });
   })
