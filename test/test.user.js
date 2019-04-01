@@ -64,13 +64,10 @@ describe("#users", function() {
   describe("/DELETE/:id user", () => {
     this.timeout(5000);
     it("it should delete a user based on the given id", async () => {
-      chai
+      const result = await chai
         .request(app)
         .delete(`/api/users/5ca1bfd988dbdd58ede1e7e0`)
-        .end((err, res) => {
-          res.should.have.status(200);
-          //console.log(res.body)
-        });
+        result.should.have.status(200);
     });
   });
 });

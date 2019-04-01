@@ -69,3 +69,8 @@
 =======
 2019-03-22T08:15:22.736Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "z@z.ff" }
 >>>>>>> master
+2019-04-01T13:38:23.292Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
+2019-04-01T13:38:50.448Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
+2019-04-01T13:39:22.570Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
+2019-04-01T13:45:39.037Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
+2019-04-01T14:05:32.790Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: _id_ dup key: { : ObjectId('5ca1d12788dbdd58ede1f4b6') }
