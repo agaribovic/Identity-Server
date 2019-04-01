@@ -47,7 +47,7 @@ module.exports = app => {
                 headers: { authorization: "bearer " + config.token }
             },
             (err, result) => {
-                //console.log(result.body);
+                
             }
         );
         res.redirect("/adminUserView");
@@ -74,23 +74,7 @@ module.exports = app => {
             }
         );
     });
-    // app.post('/loginMail/:mail', (req, res) => {
-    //     request.post({
-    //         url: 'http://localhost:5000/auth/loginMail/' + '?mail=' + req.query.email,
-    //         body: req.body,
-    //         json: true
-    //     }, (err, result) => {
-    //         if (result.statusCode == 401) {
-    //             res.render('login.ejs', { message: 'User does not exist', info: config.token })
-    //         }
-    //         else {
-
-    //             config.token = result.body
-    //             res.redirect('/adminPanel')
-    //         }
-    //         console.log(result.statusCode)
-    //     })
-    // })
+    
 
     app.post("/signup", (req, res) => {
         let flag = false;
@@ -271,20 +255,7 @@ module.exports = app => {
         res.render("editClient.ejs", { message: "" });
     });
 
-    app.get("/deleteClient/:id", (req, res) => {
-        request.delete(
-            {
-                url: "http://localhost:5000/api/clients/" + req.params.id,
-                json: true,
-                headers: { authorization: "bearer " + config.token }
-            },
-            (err, result) => {
-                console.log(result.body);
-                res.redirect('/adminUserView')
-            }
-        )
-    })
-
+   
     //ZAKINE
     app.get('/editClient/:id', (req, res) => {
         var id = req.params.id
@@ -308,16 +279,20 @@ module.exports = app => {
 
     app.get('/editClient', (req, res) => { res.render('editClient.ejs', { message: '' }) })
 
-    app.get('/deleteClient/:id', (req, res) => {
-        request.delete({
-            url: 'http://localhost:5000/api/clients/' + req.params.id,
-            json: true,
-            headers: { authorization: "bearer " + config.token }
-        }, (err, result) => {
-            console.log(result.body);
-        })
-        res.redirect('/clients')
-    })
+    
+    app.get("/deleteClient/:id", (req, res) => {
+        request.delete(
+            {
+                url: "http://localhost:5000/api/clients/" + req.params.id,
+                json: true,
+                headers: { authorization: "bearer " + config.token }
+            },
+            (err, result) => {
+                console.log(result.body);
+            }
+        );
+        res.redirect("/clients");
+    });
 
     app.get('/deleteClient', (req, res) => { res.render('deleteClient.ejs', { message: '' }) })
 
@@ -337,24 +312,23 @@ module.exports = app => {
         }, (err, result) => {
             res.redirect('/clients');
         })
-
     })
 
 
     app.get('/assignments', (req, res) => {
         request.get('http://localhost:5000/api/users', (err, result) => {
             var all_users = JSON.parse(result.body);
-            console.log(all_users);
+            //console.log(all_users);
             request.get('http://localhost:5000/api/clients', (err, result) => {
                 res.render('assignments.ejs', { message: '', users: all_users, clients: JSON.parse(result.body) })
             })
         })
-
     })
+
     app.get('/assignments/:id', (req, res) => {
         request.get('http://localhost:5000/api/users/' + req.params.id, (err, result) => {
             var user = [JSON.parse(result.body)];
-            console.log(user);
+            //console.log(user);
             request.get('http://localhost:5000/api/clients', (err, result) => {
                 res.render('assignments.ejs', { message: '', users: user, clients: JSON.parse(result.body) })
             })
@@ -373,6 +347,8 @@ module.exports = app => {
 
     app.post("/assignments", (req, res) => {
         let accId;
+        console.log("tijelo: ");
+        console.log(req.body);
 
         req.body.scopes = { role: req.body.scopes, action: "", team: "" };
 
@@ -385,6 +361,7 @@ module.exports = app => {
             },
             (err, result) => {
                 accId = result.body._id;
+            });
 
                 request.put(
                     {
@@ -393,7 +370,9 @@ module.exports = app => {
                         body: { clients: accId },
                         json: true
                     },
-                    (err, result) => { }
+                    (err, result) => { 
+                        
+                    }
                 );
 
                 request.put(
@@ -407,9 +386,8 @@ module.exports = app => {
                         res.redirect("/adminPanel");
                     }
                 );
-            }
-        );
-    });
+            
+            });
     app.get("/adminPanel", (req, res) => {
         res.render("adminPanel.ejs", {
             message: "",
@@ -545,6 +523,7 @@ module.exports = app => {
             );
         });
     });
+
     app.get("/usersClients/:id", (req, res) => {
         request.get(
             "http://localhost:5000/api/users/" + req.params.id + "/clients",
