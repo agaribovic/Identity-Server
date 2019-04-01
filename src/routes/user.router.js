@@ -13,7 +13,7 @@ router.route('/api/users/:id')
     .put(ctrl.update)
     .delete(ctrl.remove)
 
-router.route('/api/users/:id/clients')
+router.route('/api/users/:id/clients')//works
     .get(ctrl.clients)
 
 router.param('id', ctrl.getId)

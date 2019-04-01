@@ -5,6 +5,7 @@ import clientRouter from './routes/client.router'
 import accessRouter from './routes/access.router'
 import authRouter from './routes/auth.router'
 import webRouter from './routes/web.routes'
+
 //import logger from './helpers/logger';
 
 
@@ -27,8 +28,10 @@ app.use('/', userRouter)
 app.use('/', clientRouter)
 app.use('/', accessRouter)
 app.use('/', authRouter)
+
 app.use(express.static(__dirname + 'views'))
 //app.use('/',logStart)
+
 
 webRouter(app)
 

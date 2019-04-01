@@ -27,7 +27,6 @@
                     <th>Date Created</th>
                     <th>ClientName</th>
                     <th>Redirect</th>
-                    <th>DateCreated</th>
                     <th>Status</th>
                     <th class="text-right">Actions</th>
                 </tr>
@@ -36,22 +35,27 @@
                     <td><%= client.stringCreated %></td>
                     <td><%= client.name %></td>
                     <td><%= client.redirect %></td>
-                    <td><%= client.stringCreated %></td>
                     <td>
                         <a href="/adminEnableClient/<%= client._id %>">
                             <% if(client.enabled === false){ %>
                             <i class="btn btn-custom-disabled">Disabled</i>
-                            <% }else{ %>
+                            <% } else { %>
                             <i class="btn btn-custom-enabled">Enabled</i>
                             <% } %>
                         </a>
                     </td>
                     <td>
+                        <a href="/clientsUsers/<%= client._id %>">
+                            <i class="fas fa-list"></i>
+                        </a>
                         <a href="/editClient/<%= client._id %>">
                             <i class="fas fa-edit"></i>
                         </a>
                         <a href="/deleteClient/<%= client._id %>" class="custom-trash">
                             <i class="fas fa-trash-alt"></i>
+                        </a>
+                        <a href="/classignments/<%= client._id %>">¸
+                            <i class="fas fa-puzzle-piece" ></i>
                         </a>
                     </td>
                 </tr>

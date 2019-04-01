@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2019-03-21T16:47:49.004Z [info] Method: GET, Url : /, Response: function status(code) {
   this.statusCode = code;
   return this;
@@ -1040,3 +1041,6 @@
 2019-04-01T08:56:01.278Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: _id_ dup key: { : ObjectId('5ca1d12788dbdd58ede1f4b6') }
 2019-04-01T08:56:54.683Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
 2019-04-01T08:57:29.833Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
+=======
+2019-03-22T08:15:22.736Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "z@z.ff" }
+>>>>>>> master
