@@ -1,4 +1,4 @@
-var searchMatrix = function(matrix, target) {
+/* var searchMatrix = function(matrix, target) {
     
     for(let i = 0; i < matrix[0].length; i++){
         let bottom = 0;
@@ -36,4 +36,4 @@ let matrix = [
 ];
   let target = 13;
   
-console.log(searchMatrix(matrix, target));
+console.log(searchMatrix(matrix, target)); */

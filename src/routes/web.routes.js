@@ -109,7 +109,8 @@ module.exports = (app) => {
                 else if(regexZaPassword.test(String(req.body.plainText)) == false) {
                     res.render('signup.ejs', {message: 'Password must contain at least one capital letter, one number, one symbol, and be longer than 8 symbols', info:config.token})
                 }else{
-                  
+                    res.render('login.ejs', {message: 'Successful signup! Please login: ', created: result.body.created})
+                
                   
                   //#region 
             let account =  nodemailer.createTestAccount();
@@ -138,7 +139,7 @@ module.exports = (app) => {
             let info = transporter.sendMail(mailOptions)
 //#endregion
                   
-                    res.render('login.ejs', {message: 'Successful signup! Please login: ', created: result.body.created})
+                    
                 }
             //console.log(result.statusCode, result.body)
 
@@ -362,16 +363,16 @@ module.exports = (app) => {
             const regexZaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
             
             if(result.body.errmsg && result.body.errmsg.includes('email')) {
-                res.render('adminUserAdd.ejs', { message:'Email već postoji!'})
+                res.render('adminUserAdd.ejs', { message:'Email already exist!'})
  
             } else if(req.body.name == '' || req.body.email == '' || req.body.plainText == '') {
-                res.render('adminUserAdd.ejs', { message:'Molimo popunite sva polja!' , info:config.token})
+                res.render('adminUserAdd.ejs', { message:'Please fill in required filds!' , info:config.token})
             }
                 else if(regexZaIme.test(String(req.body.name)) == false) {
-                res.render('adminUserAdd.ejs', { message: 'Ime nije validno', info:config.token})
+                res.render('adminUserAdd.ejs', { message: 'Name is not valid', info:config.token})
                 }
                 else if(regexZaEmail.test(String(req.body.email).toLowerCase()) == false) {
-                res.render('adminUserAdd.ejs', { message: 'Email nije validan', info:config.token})
+                res.render('adminUserAdd.ejs', { message: 'Email is not valid!', info:config.token})
                 }else{
                     res.redirect('/adminUserView')
                 }

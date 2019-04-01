@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack --config webpack.test.js && mocha dist/test.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,10 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
