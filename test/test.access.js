@@ -31,7 +31,7 @@ describe("#access", function() {
       let user = {
         _id: "5ca1d12788dbdd58ede1f4b6", //USERID ISTI KO KOD USERA
         name: "Korisnik",
-        email: "korisnik@example.com",
+        email: "korisnik2@example.com",
         plainText: "Korisnik69!",
         enabled: true
       };
@@ -91,34 +91,36 @@ describe("#access", function() {
     });
   });
 
-  describe("/DELETE/:id access", () => {
-    this.timeout(5000);
-    it("it should delete access based on the given id", async () => {
-      const result = await chai
-        .request(app)
-        .delete(`/api/access/5ca1c02788dbdd58ede1e7f7`);
-
-      result.should.have.status(200);
-    });
-  });
-
+  
   describe("/DELETE/:id user", () => {
     this.timeout(5000);
     it("it should delete a user based on the given id", async () => {
       const result = await chai
         .request(app)
-        .delete(`/api/users/5ca1d12788dbdd58ede1f4b6`);
-      result.should.have.status(200);
+        .delete(`/api/users/5ca1d12788dbdd58ede1f4b6`)
+        result.should.have.status(200);
     });
   });
 
+  
   describe("/DELETE/:id client", () => {
     this.timeout(5000);
     it("it should delete a client based on the given id", async () => {
       const result = await chai
         .request(app)
-        .delete(`/api/clients/5ca1d14c88dbdd58ede1f4f4`);
+        .delete(`/api/clients/5ca1d14c88dbdd58ede1f4f4`)
       result.should.have.status(200);
     });
   });
-});
+  
+  // describe("/DELETE/:id access", () => {
+  //   this.timeout(5000);
+  //   it("it should delete access based on the given id", async () => {
+  //     const result = await chai
+  //       .request(app)
+  //       .delete(`/api/access/5ca1c02788dbdd58ede1e7f7`);
+  //     result.should.have.status(200);
+  //   });
+  // });
+})
+
