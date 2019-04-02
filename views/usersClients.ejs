@@ -4,11 +4,6 @@
 <head>
     <% include partials/head %>
     <% include partials/customCss %>
-    <style>
-        body {
-            width: 60%
-        }
-    </style>
 </head>
 
 <body>
@@ -22,8 +17,6 @@
                 </div>
             </div>
 
-
-
             <table class="table custom-table mt-20">
                 <tr>
                     <th>Date Created</th>
@@ -34,10 +27,7 @@
                 <tr>
                     <td><%= item.client.stringCreated %></td>
                     <td><%= item.client.name %></td>
-                    <td><%= item.client.redirect %></td>
-
-
-
+                    <td class="client-redirect"><%= item.client.redirect %></td>
                 </tr>
                 <% }) %>
             </table>
