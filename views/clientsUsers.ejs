@@ -21,12 +21,22 @@
                     <th>Date created</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Actions</th>
                 </tr>
                 <% props.forEach(function(item) { %>
                 <tr>
                     <td><%= item.user.stringCreated %></td>
                     <td><%= item.user.name %></td>
                     <td><%= item.user.email %></td>
+                    <td>
+                        <!-- <a href="/deleteUser/<%= user._id %>" class="custom-trash mr-10" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Delete User">
+                            <i class="fas fa-trash-alt"></i>
+                        </a> -->
+                        <a>
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                        
+                    </td>
                 </tr>
                 <% }) %>
             </table>
