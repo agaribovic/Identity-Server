@@ -219,11 +219,7 @@ module.exports = app => {
         res.redirect("/adminUserView");
     });
 
-  
-
-
-
-    app.post("/adminEditUser", (req, res) => {
+   app.post("/adminEditUser", (req, res) => {
         //console.log(config.token)
         request.put(
             {
@@ -385,7 +381,7 @@ app.get("/editClient/:id", (req, res) => {
         console.log("tijelo: ");
         console.log(req.body);
 
-        req.body.scopes = { role: req.body.scopes, action: "", team: "" };
+        req.body.scopes = { role: req.body.role, action: req.body.action, team: req.body.team };
 
         request.post(
             {
