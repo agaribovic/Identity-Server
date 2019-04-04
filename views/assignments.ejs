@@ -9,7 +9,7 @@
        <div class="custom-container">
            <h2 class="text-center">Assignments</h2>
            <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 pl-0">
                     <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
                 </div>
             </div> 
@@ -22,7 +22,7 @@
            <!-- DROPDOWN FORM -->
            <form class="mt-20" action="/assignments" method="post">
                <div class="row">
-                    <div class="col-md-4">
+                    <div class="custom-col pr-10">
                         <div class="dropdown">
                             <label for="">Users: </label><br>
                             <% if(users.length !== 1){ %>
@@ -41,7 +41,7 @@
                             <% } %>
                         </div>
                     </div>
-                   <div class="col-md-4">
+                    <div class="custom-col pr-10">
                         <div class="dropdown">
                             <label for="">Clients: </label><br>                            
                                 <!-- <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Clients<span class="caret"></span></button> -->
@@ -64,46 +64,46 @@
                                 
                         </div>
                     </div>
-                   <div class="col-md-4">
-                       <div class="dropdown">
-                           <label for="">Role: </label><br>
-
-                                <select name="role" class="form-control" required>
-                                    <option class ="notSelected" value="" selected>Select a role</option>                                 
-                                    <option type="text" value="Admin">Admin</option>
-                                    <option type="text" value="User">User</option>
-                                </select>
-                       </div>
-                   </div>
-                   <div class="col-md-4">
-                    <div class="dropdown">
-                        <label for="">Action: </label><br>
-
-                             <select name="action" class="form-control" required>
-                                 <option class ="notSelected" value="" selected>Select a action</option>                                 
-                                 <option type="text" value="RW">RW</option>
-                                 <option type="text" value="R">R</option>
-                                 <option type="text" value="R">NO</option>
-                             </select>
+                    <div class="custom-col pr-10">
+                        <div class="dropdown">
+                            <label for="">Team: </label><br>
+                                    <select name="team" class="form-control" required>
+                                        <option class ="notSelected" value="" selected>Select a team</option>                                 
+                                        <option type="text" value="Apollo">Apollo</option>
+                                        <option type="text" value="Nemesis">Nemesis</option>
+                                        <option type="text" value="Poseidon">Poseidon</option>
+                                        <option type="text" value="Hermes">Hermes</option>
+                                    </select>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="dropdown">
-                        <label for="">Team: </label><br>
-                             <select name="team" class="form-control" required>
-                                 <option class ="notSelected" value="" selected>Select a team</option>                                 
-                                 <option type="text" value="Apollo">Apollo</option>
-                                 <option type="text" value="Nemesis">Nemesis</option>
-                                 <option type="text" value="Poseidon">Poseidon</option>
-                                 <option type="text" value="Hermes">Hermes</option>
-                             </select>
+                    <div class="custom-col pr-10">
+                        <div class="dropdown">
+                                <label for="">Role: </label><br>
+        
+                                    <select name="role" class="form-control" required>
+                                        <option class ="notSelected" value="" selected>Select a role</option>                                 
+                                        <option type="text" value="Admin">Admin</option>
+                                        <option type="text" value="User">User</option>
+                                    </select>
+                            </div>
                     </div>
-                </div>
+                    <div class="custom-col">     
+                        <div class="dropdown">
+                                <label for="">Action: </label><br>
+
+                                        <select name="action" class="form-control" required>
+                                            <option class ="notSelected" value="" selected>Select a action</option>                                 
+                                            <option type="text" value="RW">RW</option>
+                                            <option type="text" value="R">R</option>
+                                            <option type="text" value="R">NO</option>
+                                        </select>
+                            </div>
+                    </div>
                </div>
                <br>
                <div class="row">
                    <div class="col-md-8"></div>
-                   <div class="col-md-4 text-right"><button type="submit" class="btn btn-custom-primary">Assign</button></div>
+                   <div class="col-md-4 text-right pr-0"><button type="submit" class="btn btn-custom-primary">Assign</button></div>
                </div>
            </form>
 
