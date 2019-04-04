@@ -1049,3 +1049,6 @@
 2019-04-01T13:39:22.570Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
 2019-04-01T13:45:39.037Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik@example.com" }
 2019-04-01T14:05:32.790Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: _id_ dup key: { : ObjectId('5ca1d12788dbdd58ede1f4b6') }
+2019-04-04T14:50:09.177Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik2@example.com" }
+2019-04-04T14:51:14.299Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik2@example.com" }
+2019-04-04T14:55:54.103Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "korisnik2@example.com" }
