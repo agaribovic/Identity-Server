@@ -39,15 +39,15 @@ document.getElementById('datePicker').value =Date().now
             <div class="form-group">
 
                 <label>Client Name</label>
-                <input type="text" class="form-control" name="name" value="<%= client.name %>" required
+                <input type="text" class="form-control" name="clientId" value="<%= client.name %>">
             </div>       
             <div class="form-group">
                 <!-- <label>Claims</label> -->
                 <input type="hidden" class="form-control" name="claims"value="<%= client.claims%>">
             </div>
             <div class="form-group">
-                <!-- <label>Secret</label> -->
-                <input type="hidden" class="form-control" name="secret"value="<%= client.secret%>">
+                <label>Secret</label>
+                <input type="text" class="form-control" name="secret"value="<%= client.secret%>">
             </div>
             <div class="form-group">
                 <label>Redirect</label>

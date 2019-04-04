@@ -12,6 +12,7 @@ router.route('/api/users/:id')
     .get(ctrl.read)
     .put(ctrl.update)
     .delete(ctrl.remove)
+    .unlink(ctrl.unassign)
 
 router.route('/api/users/:id/clients')//works
     .get(ctrl.clients)

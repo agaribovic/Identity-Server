@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+2019-03-22T08:15:22.736Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "z@z.ff" }
+2019-03-29T20:20:07.658Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakir@gmail.com" }
+2019-03-29T20:34:12.066Z [error] unknown operator: isEmpty
+2019-04-03T09:59:50.253Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakir@gmail.com" }
+2019-04-03T10:02:16.791Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakir5@gmail.com" }
+2019-04-03T10:02:43.550Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakir6@gmail.com" }
+2019-04-03T11:10:17.993Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakir33@gmail.com" }
+2019-04-04T11:03:08.424Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "zakir2@gmail.com" }
+2019-04-04T11:49:40.878Z [error] E11000 duplicate key error collection: TimeKeeperIdentity.users index: email_1 dup key: { : "amel@gmail.com" }
+=======
+>>>>>>> master
