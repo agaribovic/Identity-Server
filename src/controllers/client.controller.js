@@ -2,6 +2,7 @@ import Client from '../models/client.model'
 import User from '../models/user.model'
 import base64 from '../helpers/base64'
 import Access from '../models/access.model'
+import logger from '../helpers/logger'
 import _ from 'lodash'
 
 const create = (req, res) => {

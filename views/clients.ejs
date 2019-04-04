@@ -20,21 +20,21 @@
                 </div>
             </div>
 
-
-
             <table class="table custom-table mt-20">
                 <tr>
                     <th>Date Created</th>
                     <th>ClientName</th>
                     <th>Redirect</th>
+                    <th>Secret</th>
                     <th>Status</th>
                     <th class="text-right">Actions</th>
                 </tr>
                 <% clients.forEach(function(client, i) { %>
                 <tr>
                     <td><%= client.stringCreated %></td>
-                    <td><%= client.name %></td>
+                    <td><%= client.clientId %></td>
                     <td><%= client.redirect %></td>
+                    <td><%= client.secret%></td>
                     <td>
                         <a href="/adminEnableClient/<%= client._id %>">
                             <% if(client.enabled === false){ %>
@@ -45,16 +45,16 @@
                         </a>
                     </td>
                     <td>
-                        <a href="/clientsUsers/<%= client._id %>">
+                        <a class="mr-10" href="/clientsUsers/<%= client._id %>" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Clients List">
                             <i class="fas fa-list"></i>
                         </a>
-                        <a href="/editClient/<%= client._id %>">
+                        <a href="/editClient/<%= client._id %>" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Edit User">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="/deleteClient/<%= client._id %>" class="custom-trash">
+                        <a href="/deleteClient/<%= client._id %>" class="custom-trash mr-10" class="custom-trash mr-10" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Delete User">
                             <i class="fas fa-trash-alt"></i>
                         </a>
-                        <a href="/classignments/<%= client._id %>">¸
+                        <a href="/classignments/<%= client._id %>" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="Assignement">
                             <i class="fas fa-puzzle-piece" ></i>
                         </a>
                     </td>
@@ -69,6 +69,13 @@
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap Popover -->
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
 </body>
 
 </html>
