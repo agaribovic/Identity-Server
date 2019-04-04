@@ -25,14 +25,16 @@
                     <th>Date Created</th>
                     <th>ClientName</th>
                     <th>Redirect</th>
+                    <th>Secret</th>
                     <th>Status</th>
                     <th class="text-right">Actions</th>
                 </tr>
                 <% clients.forEach(function(client, i) { %>
                 <tr>
                     <td><%= client.stringCreated %></td>
-                    <td><%= client.name %></td>
+                    <td><%= client.clientId %></td>
                     <td><%= client.redirect %></td>
+                    <td><%= client.secret%></td>
                     <td>
                         <a href="/adminEnableClient/<%= client._id %>">
                             <% if(client.enabled === false){ %>
