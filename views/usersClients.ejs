@@ -29,13 +29,18 @@
                     <th>Date Created</th>
                     <th>ClientName</th>
                     <th>Redirect</th>
+                    <th>Actions</th>
+                    <th>userId</th>
                 </tr>
                 <% props.forEach(function(item) { %>
                 <tr>
                     <td><%= item.client.stringCreated %></td>
                     <td><%= item.client.name %></td>
                     <td><%= item.client.redirect %></td>
-
+        <td><a href="/UnassignUserFromClient/<%= item.client._id%>?user=<%=user%>" class="custom-trash">
+            <i class="fas fa-trash-alt"></i>
+        </a></td>
+        <td style="display:none"><%= user%></td>
 
 
                 </tr>

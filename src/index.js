@@ -10,5 +10,5 @@ mongoose.connection.on('error', () => { console.log('GRESKA') })
 
 app.listen(config.port, (err) => {
     if(err) console.log(err)
-    console.log('Server is running on port',config.port)
+    console.log('Server is running on '+config.IdentityRoute)
 })

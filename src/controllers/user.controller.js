@@ -56,7 +56,10 @@ const update = (req, res) => {
         }
     })
 }
+const unassign = (req,res) =>{
 
+    res.status(200).send('Hello')
+}
 const remove = (req, res) => {
     let user = req.profile
     user.remove((err, deletedUser) => {
@@ -85,4 +88,4 @@ const clients = (req, res) => {//prof's
         })
 }
 
-export default { list, create, getId, read, update, remove, clients }
+export default { list, create,unassign, getId, read, update, remove, clients }
