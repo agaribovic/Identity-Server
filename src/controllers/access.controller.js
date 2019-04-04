@@ -74,8 +74,11 @@ const update = (req, res, next) => {
 const remove = (req, res, next) => {
     let access = req.profile
     access.remove((err, deletedAccess) => {
-        if (err) res.status(400).send(err)
-        res.send(deletedAccess)
+        if (err){
+             res.status(400).send(err)
+            }else{
+                res.send(deletedAccess)
+            }
     })
 }
 

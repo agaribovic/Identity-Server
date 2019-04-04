@@ -44,6 +44,49 @@ module.exports = app => {
             res.render("login.ejs", { message: "", client: config.client, info: config.token });
         }
     });
+
+    app.get("/index", (req, res) => {
+        res.render("index.ejs", { message: "" });
+    });
+
+    app.get("/profile", (req, res) => {
+        res.render("profile.ejs", { message: "" });
+    });
+
+    app.get("/signup", (req, res) => {
+        res.render("signup.ejs", { message: "" });
+    });
+
+    app.get("/adminUserAdd", (req, res) => {
+        res.render("adminUserAdd.ejs", { message: "" });
+    });
+
+    app.get("/users", (req, res) => {
+        request.get("http://localhost:5000/api/users", (err, result) => {
+            res.render("users.ejs", { users: JSON.parse(result.body) });
+        });
+    });
+
+    app.get("/adminUserView", (req, res) => {
+        request.get("http://localhost:5000/api/users", (err, result) => {
+            res.render("adminUserView.ejs", { users: JSON.parse(result.body) });
+        });
+    });
+
+    app.get("/deleteUser/:id", (req, res) => {
+        request.delete(
+            {
+                url: "http://localhost:5000/api/users/" + req.params.id,
+                json: true,
+                headers: { authorization: "bearer " + config.token }
+            },
+            (err, result) => {
+                
+            }
+        );
+        res.redirect("/adminUserView");
+    });
+
     app.post("/login", (req, res) => {
         let from=req.body.from
         request.post(
@@ -86,7 +129,6 @@ module.exports = app => {
             }
         );
     });
-
 
     app.post("/signup", (req, res) => {
 
@@ -319,6 +361,7 @@ module.exports = app => {
         res.render("editClient.ejs", { message: "" });
     });
 
+   
     //ZAKINE
     app.get('/editClient/:id', (req, res) => {
         var id = req.params.id
@@ -371,7 +414,6 @@ module.exports = app => {
         }, (err, result) => {
             res.redirect('/clients');
         })
-
     })
 
     //#endregion
@@ -385,6 +427,7 @@ module.exports = app => {
             })
         })
     })
+
     app.get('/assignments/:id', (req, res) => {
         request.get(config.IdentityRoute + "/api/users/" + req.params.id, (err, result) => {
             var user = [JSON.parse(result.body)];
@@ -451,7 +494,9 @@ module.exports = app => {
                         body: { clients: accId },
                         json: true
                     },
-                    (err, result) => { }
+                    (err, result) => { 
+                        
+                    }
                 );
 
                 request.put(
@@ -608,6 +653,7 @@ module.exports = app => {
             );
         });
     });
+
     app.get("/usersClients/:id", (req, res) => {
         //let user;
         // request.get(//user za mail
