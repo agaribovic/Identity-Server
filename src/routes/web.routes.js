@@ -44,49 +44,6 @@ module.exports = app => {
             res.render("login.ejs", { message: "", client: config.client, info: config.token });
         }
     });
-
-    app.get("/index", (req, res) => {
-        res.render("index.ejs", { message: "" });
-    });
-
-    app.get("/profile", (req, res) => {
-        res.render("profile.ejs", { message: "" });
-    });
-
-    app.get("/signup", (req, res) => {
-        res.render("signup.ejs", { message: "" });
-    });
-
-    app.get("/adminUserAdd", (req, res) => {
-        res.render("adminUserAdd.ejs", { message: "" });
-    });
-
-    app.get("/users", (req, res) => {
-        request.get("http://localhost:5000/api/users", (err, result) => {
-            res.render("users.ejs", { users: JSON.parse(result.body) });
-        });
-    });
-
-    app.get("/adminUserView", (req, res) => {
-        request.get("http://localhost:5000/api/users", (err, result) => {
-            res.render("adminUserView.ejs", { users: JSON.parse(result.body) });
-        });
-    });
-
-    app.get("/deleteUser/:id", (req, res) => {
-        request.delete(
-            {
-                url: "http://localhost:5000/api/users/" + req.params.id,
-                json: true,
-                headers: { authorization: "bearer " + config.token }
-            },
-            (err, result) => {
-                
-            }
-        );
-        res.redirect("/adminUserView");
-    });
-
     app.post("/login", (req, res) => {
         let from=req.body.from
         request.post(
@@ -230,10 +187,6 @@ module.exports = app => {
     });
 
 
-    app.get("/index", (req, res) => {
-        res.render("index.ejs", { message: "" });
-    });
-
     app.get("/profile", (req, res) => {
         res.render("profile.ejs", { message: "" });
     });
@@ -316,7 +269,7 @@ module.exports = app => {
     });
 
 
-    app.post("/adminEditUser", (req, res) => {
+   app.post("/adminEditUser", (req, res) => {
         //console.log(config.token)
         request.put(
             {
@@ -356,22 +309,7 @@ module.exports = app => {
             });
         });
     });
-
-    app.get("/editClient", (req, res) => {
-        res.render("editClient.ejs", { message: "" });
-    });
-
    
-    //ZAKINE
-    app.get('/editClient/:id', (req, res) => {
-        var id = req.params.id
-        request.get(config.IdentityRoute + "/api/clients/" + id, (err, result) => {
-            let client = JSON.parse(result.body)
-            //console.log(client)
-            res.render('editClient.ejs', { message: '', client: { id: client._id, name: client.name, claims: client.claims, secret: client.secret, redirect: client.redirect } })
-        })
-    })
-
     app.post('/editClient', (req, res) => {
         request.put({
             url: config.IdentityRoute + "/api/clients/" + req.body.id,

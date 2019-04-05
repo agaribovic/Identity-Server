@@ -14,6 +14,7 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
   console.log(clientId)
   User.findOne({ 'email': username }, (err, userData) => {
     if (err || !userData) {
+      console.log("user")
       res.status(401).send('User does not exist')
     } 
     if(!_.isEmpty(userData))
@@ -28,12 +29,12 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
       if (userData.authenticate(password)) {
         Client.findOne({ 'clientId': clientId }, (err, clientData) => {
           if (err || !clientData) {
-            
-            res.status(404).send('Client does not exists')
+            console.log(clientData,'does not exist')
+            res.status(404).send('Client does not exist')
           } else {
             Access.findOne({ 'user': userData._id, 'client': clientData._id }, (err, accessData) => {
               if (err || !accessData) {
-                //console.log('denied')
+                console.log('denied')
                 res.status(401).send('Access denied')
               } else {
                 config.currentUser = {
