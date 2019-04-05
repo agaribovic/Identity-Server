@@ -3,6 +3,8 @@ chai.use(require("chai-http"));
 chai.should();
 import app from "../src/index";
 
+let clientId
+
 describe("#clients", function () {
   describe("/GET clients", function () {
     this.timeout(5000);
@@ -17,7 +19,7 @@ describe("#clients", function () {
     this.timeout(5000);
     it("it should create a client", async function () {
       let client = {
-        _id: "5c9ce5d634ebf14458546abc",
+        //_id: "5c9ce5d634ebf14458546abc",
         name: "Klijent29",
         secret: "123456!",
         enabled: true
@@ -27,6 +29,7 @@ describe("#clients", function () {
         .request(app)
         .post("/api/clients")
         .send(client);
+        clientId = result.body._id
 
       result.should.have.status(200);
       //console.log(result.body)
@@ -37,7 +40,7 @@ describe("#clients", function () {
       it("should return one client", async function () {
         const result = await chai
           .request(app)
-          .get(`/api/clients/5c9ce5d634ebf14458546abc`);
+          .get(`/api/clients/${clientId}`);
         result.should.have.status(200);
       });
     });
@@ -52,7 +55,7 @@ describe("#clients", function () {
 
         const result = await chai
           .request(app)
-          .put(`/api/clients/5c9ce5d634ebf14458546abc`)
+          .put(`/api/clients/${clientId}`)
           .send(client);
         result.should.have.status(200);
         //console.log(result.body)
@@ -64,7 +67,7 @@ describe("#clients", function () {
       it("it should delete a client based on the given id", async () => {
         const result = await chai
           .request(app)
-          .delete(`/api/clients/5c9ce5d634ebf14458546abc`)
+          .delete(`/api/clients/${clientId}`)
         result.should.have.status(200);
       });
     });
