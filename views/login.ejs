@@ -5,9 +5,11 @@
     <% include partials/customCss %>
 </head>
 <body>
-    <div class="container custom-form">
+    <% if(client=='TK'){ %>
+    <div class="background">
+    <div class="container custom-form1">
         <div class="custom-container">
-            <h2 class="text-center">Login</h2>
+            <h2 class="text-center">Login to <%=client%></h2>
             <% if (message && message.includes('Successful')) { %>
                 <div class="alert alert-success" role="alert"><%= message %></div>
                 <% } else if (message!='') { %>
@@ -28,7 +30,7 @@
                 <button type="submit" class="btn btn-custom-primary">Login</button>
             </form>
             <hr>
-            <p>Need an account? <a href="/signup">Signup</a></p>
+                <p>Need an account? <a href="/signup?client=TK">Signup</a></p>
             <div class="footer mt-40">
                 <div class="text-center">
                     <p>© 2019 Copyright By Apollo Team</p>
@@ -36,5 +38,38 @@
             </div>
         </div>
     </div>
+    <% } else { %>
+        <div class="container custom-form">
+                <div class="custom-container">
+                    <h2 class="text-center">Login to <%=client%></h2>
+                    <% if (message && message.includes('Successful')) { %>
+                        <div class="alert alert-success" role="alert"><%= message %></div>
+                        <% } else if (message!='') { %>
+                        <div class="alert alert-danger" role="alert"><%= message %> </div>
+                    <% } %>
+        
+                    <!-- LOGIN FORM -->
+                    <form action="/login" method="post">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <input type="text" class="form-control" name="from" style="display: none" value="<%= client %>">
+                        <button type="submit" class="btn btn-custom-primary">Login</button>
+                    </form>
+                    <hr>
+                        <p>Need an account? <a href="/signup?client=IS">Signup</a></p>
+                    <div class="footer mt-40">
+                        <div class="text-center">
+                            <p>© 2019 Copyright By Apollo Team</p>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+</div>
 </body>
 </html>

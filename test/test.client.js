@@ -21,8 +21,10 @@ describe("#clients", function () {
       let client = {
         //_id: "5c9ce5d634ebf14458546abc",
         name: "Klijent29",
+        clientId:"HP",
         secret: "123456!",
-        enabled: true
+        enabled: true,
+        redirect:"localhost"
       };
 
       const result = await chai
