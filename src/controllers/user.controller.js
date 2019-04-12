@@ -76,7 +76,6 @@ const remove = (req, res) => {
                     res.status(400).send(err);
                 }else{
 
-
                     let accessId = result._id;
                     let clientId = result.client;
                     let arrayOfUsers;

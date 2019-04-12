@@ -9,7 +9,7 @@ describe("#access", function() {
     it("should list all accesses", async function() {
       const result = await chai.request(app).get("/api/access");
       result.should.have.status(200);
-      console.log(result.body);
+      //console.log(result.body);
     });
   });
 
@@ -19,8 +19,10 @@ describe("#access", function() {
       let client = {
         _id: "5ca1d14c88dbdd58ede1f4f4", //clientID isti kao u client tests
         name: "Klijent29",
+        clientId:"HR",
         secret: "123456!",
-        enabled: true
+        enabled: true,
+        redirect:"localhost"
       };
 
       await chai
@@ -112,15 +114,5 @@ describe("#access", function() {
       result.should.have.status(200);
     });
   });
-  
-  // describe("/DELETE/:id access", () => {
-  //   this.timeout(5000);
-  //   it("it should delete access based on the given id", async () => {
-  //     const result = await chai
-  //       .request(app)
-  //       .delete(`/api/access/5ca1c02788dbdd58ede1e7f7`);
-  //     result.should.have.status(200);
-  //   });
-  // });
 })
 

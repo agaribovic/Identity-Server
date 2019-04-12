@@ -11,10 +11,10 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
   let password = req.body.password
   let clientId = req.body.from
   if (!clientId) clientId = 'IS'
-  console.log(clientId)
+  //console.log(clientId)
   User.findOne({ 'email': username }, (err, userData) => {
     if (err || !userData) {
-      console.log("user")
+      //console.log("user")
       res.status(401).send('User does not exist')
     } 
     if(!_.isEmpty(userData))
@@ -29,12 +29,12 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
       if (userData.authenticate(password)) {
         Client.findOne({ 'clientId': clientId }, (err, clientData) => {
           if (err || !clientData) {
-            console.log(clientData,'does not exist')
+            //console.log(clientData,'does not exist')
             res.status(404).send('Client does not exist')
           } else {
             Access.findOne({ 'user': userData._id, 'client': clientData._id }, (err, accessData) => {
               if (err || !accessData) {
-                console.log('denied')
+                //console.log('denied')
                 res.status(401).send('Access denied')
               } else {
                 config.currentUser = {
@@ -62,7 +62,7 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
 
 const signed = (req, res, next) => {
   let token = req.headers.authorization;
-  console.log("token: " + token);
+  //console.log("token: " + token);
   if (token === undefined) {
     res.status(401).send("Unathorized access");
   } else {

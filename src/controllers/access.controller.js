@@ -32,7 +32,43 @@ const addConcerns = (access) => {
         }
     })
 }
-
+const deleteConcerns = (access) => {
+   console.log('HERE2')
+   User.findById(access.user, (err, user) => {
+       if (!err) {
+           console.log('HERE3')
+           for (let i=0; i<user.clients.length; i++) {
+               if (access._id.toString()==user.clients[i].toString()) {
+                   user.clients.splice(i, 1)
+                   break
+               }
+               console.log('HERE4')
+           }
+           user.save((err) => {
+               if (!err) {
+                   console.log('HERE5')
+                   Client.findById(access.client, (err, client) => {
+                       if (!err) {
+                           console.log('HERE6')
+                           for (let i=0; i<client.users.length; i++) {
+                               if (access._id.toString()==client.users[i].toString()) {
+                                   client.users.splice(i, 1)
+                                   break
+                               }
+                           }
+                           console.log('HERE7')
+                           client.save()
+                       } else {
+                           res.status(400).send(err)
+                       }
+                   })
+               }
+           })
+       } else {
+           res.status(400).send(err)
+       }
+   })
+}
 const list = (req, res) => {
     Access.find().populate('client', 'clientId name ').populate('user', 'name')
         .exec((err, result) => {
@@ -82,4 +118,4 @@ const remove = (req, res, next) => {
     })
 }
 
-export default { list, create, getId, read, update, remove }
+export default { list, create, getId, read, update, remove ,deleteConcerns}
