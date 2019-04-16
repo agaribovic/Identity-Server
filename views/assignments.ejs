@@ -1,116 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <% include partials/head %>
     <% include partials/customCss %>
 </head>
+
 <body>
-   <div class="container custom-form assignment">
-       <div class="custom-container">
-           <h2 class="text-center">Assignments</h2>
-           <div class="row">
+    <div class="container custom-form assignment">
+        <div class="custom-container">
+            <h2 class="text-center">Assignments</h2>
+            <div class="row">
                 <div class="col-md-6 pl-0">
-                    <a  href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
+                    <a href="/adminPanel"><i class="fas fa-chevron-left"></i> Back</a>
                 </div>
-            </div> 
+            </div>
 
-           <!-- show any messages that come back with authentication -->
-           <% if (message.length > 0) { %>
-               <div class="alert alert-danger"><%= message %></div>
-           <% } %>
+            <!-- show any messages that come back with authentication -->
+            <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+            <% } %>
 
-           <!-- DROPDOWN FORM -->
-           <form class="mt-20" action="/assignments" method="post">
-               <div class="row">
-                    <div class="custom-col pr-10">
+            <!-- DROPDOWN FORM -->
+            <form class="mt-20" action="/assignments" method="post">
+                <div class="row arrange">
+                    <div class=" pr-10">
                         <div class="dropdown">
                             <label for="">Users: </label><br>
                             <% if(users.length !== 1){ %>
                             <select name="user" class="form-control" required>
-                                <option class ="notSelected" value="" selected>Select a user</option>                             
+                                <option class="notSelected" value="" selected>Select a user</option>
                                 <% users.forEach(function(user) { %>
-                                <option type="text" value="<%= user._id %>" ><%= user.name%></option>
+                                <option type="text" value="<%= user._id %>"><%= user.name%></option>
                                 <% } )%>
                             </select>
                             <% }else{ %>
-                                <select name="user" class="form-control" required>                             
-                                    <% users.forEach(function(user) { %>
-                                    <option type="text" value="<%= user._id %>" selected><%= user.name%></option>
-                                    <% }) %>
-                                </select>
+                            <select name="user" class="form-control" required>
+                                <% users.forEach(function(user) { %>
+                                <option type="text" value="<%= user._id %>" selected><%= user.name%></option>
+                                <% }) %>
+                            </select>
                             <% } %>
                         </div>
                     </div>
-                    <div class="custom-col pr-10">
+                    <div class=" pr-10">
                         <div class="dropdown">
-                            <label for="">Clients: </label><br>                            
-                                <!-- <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width:100%">Clients<span class="caret"></span></button> -->
-                                <% if(clients.length !== 1){ %>
-                                    <select name="client" class="form-control" required>
-                                        <option class ="notSelected" value="" selected>Select a client</option>                             
-                                        <% clients.forEach(function(client) { %>
-                                            <option type="text" value="<%= client._id %>" ><%= client.name%></option>
-                                        <% }) %>
-                                    </select>
-                                    <% }else{ %>
-                                        <select name="client" class="form-control" required>
-                                            <option class ="notSelected" value="" selected>Select a client</option>                             
-                                            <% clients.forEach(function(client) { %>
-                                                <option type="text" value="<%= client._id %>" selected><%= client.name%></option>
-                                            <% }) %>
-                                        </select>
-                                    <% } %>
+                            <label for="">Clients: </label><br>
+                           
+                            <% if(clients.length !== 1){ %>
+                            <select name="client" class="form-control" required>
+                                <option class="notSelected" value="" selected>Select a client</option>
+                                <% clients.forEach(function(client) { %>
+                                <option type="text" value="<%= client._id %>"><%= client.name%></option>
+                                <% }) %>
+                            </select>
+                            <% }else{ %>
+                            <select name="client" class="form-control" required>
+                                <option class="notSelected" value="" selected>Select a client</option>
+                                <% clients.forEach(function(client) { %>
+                                <option type="text" value="<%= client._id %>" selected><%= client.name%></option>
+                                <% }) %>
+                            </select>
+                            <% } %>
 
-                                
+
                         </div>
                     </div>
-                    <div class="custom-col pr-10">
+
+                    <div class=" pr-10">
                         <div class="dropdown">
-                            <label for="">Team: </label><br>
-                                    <select name="team" class="form-control" required>
-                                        <option class ="notSelected" value="" selected>Select a team</option>                                 
-                                        <option type="text" value="Customers">Customers</option>
-                                        <option type="text" value="Calendar">Calendar</option>
-                                        <option type="text" value="Projects">Projects</option>
-                                        <option type="text" value="People">People</option>
-                                        <option type="text" value="Teams">Teams</option>
-                                    </select>
+                            <label for="">Role: </label><br>
+
+                            <select name="role" class="form-control" required>
+                                <option class="notSelected" value="" selected>Select a role</option>
+                                <option type="text" value="Admin">Guest</option>
+                                <option type="text" value="User">User</option>
+                                <option type="text" value="User">Lead</option>
+                                <option type="text" value="User">Admin</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="custom-col pr-10">
-                        <div class="dropdown">
-                                <label for="">Role: </label><br>
-        
-                                    <select name="role" class="form-control" required>
-                                        <option class ="notSelected" value="" selected>Select a role</option>                                 
-                                        <option type="text" value="Admin">Guest</option>
-                                        <option type="text" value="User">User</option>
-                                        <option type="text" value="User">Lead</option>
-                                        <option type="text" value="User">Admin</option>
-                                    </select>
-                            </div>
+                    <div class=" pr-10 mt31">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-4 text-right "><button type="submit"
+                                class="btn btn-custom-primary">Assign</button></div>
                     </div>
-                    <div class="custom-col">     
-                        <div class="dropdown">
-                                <!-- <label for="">Action: </label><br> -->
+                </div>
+                <br>
+            </form>
 
-                                        <!-- <select name="action" class="form-control">
-                                            <option class ="notSelected" value="" selected>Select a action</option>                                 
-                                            <option type="text" value="RW">RW</option>
-                                            <option type="text" value="R">R</option>
-                                            <option type="text" value="R">NO</option>
-                                        </select> -->
-                            </div>
-                    </div>
-               </div>
-               <br>
-               <div class="row">
-                   <div class="col-md-8"></div>
-                   <div class="col-md-4 text-right pr-0"><button type="submit" class="btn btn-custom-primary">Assign</button></div>
-               </div>
-           </form>
-
-           <div class="footer mt-40">
+            <div class="footer mt-40">
                 <div class="text-center">
                     <p>© 2019 Copyright By Apollo Team</p>
                 </div>
@@ -118,4 +97,5 @@
         </div>
     </div>
 </body>
+
 </html>
