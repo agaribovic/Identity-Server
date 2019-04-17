@@ -441,7 +441,7 @@ module.exports = app => {
 
   app.post("/assignments", (req, res) => {
     //req.body.scopes = { role: req.body.role, action: req.body.action, team: req.body.team };
-
+    console.log(req.body)
     let accId;
     let userFound;
     let userMail;
@@ -472,7 +472,7 @@ module.exports = app => {
         //roleOnTheClient=result.body.scopes[0].role
       }
     );
-    req.body.scopes = { role: req.body.scopes, action: "", team: "" };
+    req.body.scopes = { role: req.body.role, action: "", team: "" };
     request.post(
       {
         url: config.IdentityRoute + "/api/access",
