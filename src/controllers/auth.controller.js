@@ -35,17 +35,20 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
             Access.findOne({ 'user': userData._id, 'client': clientData._id }, (err, accessData) => {
               if (err || !accessData) {
                 //console.log('denied')
+               
                 res.status(401).send('Access denied')
               } else {
+                // console.log(accessData.scopes)
                 config.currentUser = {
                   _id: userData._id,
                   sub: userData.email,
                   cli: clientData.name,
                   scopes: accessData.scopes,
+                  role:accessData.scopes[0].role,
                   name: userData.name,
                   exp: new Date().getTime() / 1000 + 3600
                 }
-                //console.log(clientData.secret)
+                console.log(config.currentUser)
                 let token = jwt.sign(config.currentUser, clientData.secret/*config.secret*/)
                 res.status(200).send({ token: token, url: clientData.redirect })
               }
