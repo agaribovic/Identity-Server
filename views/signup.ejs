@@ -5,7 +5,9 @@
     <% include partials/customCss %>
 </head>
 <body>
-    <div class="container custom-form">
+        <% if(client=='TK'){ %>
+            <div class="background">
+    <div class="container custom-form1 ">
         <div class="custom-container">
             <h2 class="text-center">Signup to <%=client%></h2>
 
@@ -38,7 +40,7 @@
                 <button type="submit" class="btn btn-custom-primary">Signup</button>
             </form>
             <hr>
-            <p>Already have an account? <a href="/login">Login</a></p>
+            <p>Already have an account? <a href="/login?client=TK">Login</a></p>
 
             
             <div class="footer mt-40">
@@ -48,6 +50,52 @@
             </div>
         </div>
     </div>
+</div>
+    <% } else { %>
+        <div class="container custom-form">
+                <div class="custom-container">
+                    <h2 class="text-center">Signup to <%=client%></h2>
+        
+                    <!-- show any messages that come back with authentication -->
+                    <% if (message.length > 0) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                    <% } %>
+        
+                    <!-- LOGIN FORM -->
+                    <form action="/signup" method="post">
+                        <div class="form-group">
+                                
+                                <input type="hidden" class="form-control" name="id" value="">
+            
+                            </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" value="" >
+        
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email" >
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="plainText" >
+                        </div>
+                        <input type="text" class="form-control" name="from" style="display: none" value="<%= client%>" >
+                        <button type="submit" class="btn btn-custom-primary">Signup</button>
+                    </form>
+                    <hr>
+                    <p>Already have an account? <a href="/login">Login</a></p>
+        
+                    
+                    <div class="footer mt-40">
+                        <div class="text-center">
+                            <p>© 2019 Copyright By Apollo Team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
 </body>
 
 </html>

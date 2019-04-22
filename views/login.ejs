@@ -7,7 +7,7 @@
 <body>
     <% if(client=='TK'){ %>
     <div class="background">
-    <div class="container loginz">
+    <div class="container custom-form1 ">
         <div class="custom-container">
             <h2 class="text-center">Login to <%=client%></h2>
             <% if (message && message.includes('Successful')) { %>
@@ -63,6 +63,7 @@
                     </form>
                     <hr>
                         <p>Need an account? <a href="/signup?client=IS">Signup</a></p>
+                        <p>Forgot you password? <a href="#">Reset password</a></p>
                     <div class="footer mt-40">
                         <div class="text-center">
                             <p>© 2019 Copyright By Apollo Team</p>
