@@ -27,7 +27,9 @@
                     <input type="password" class="form-control" name="password">
                 </div>
                 <input type="text" class="form-control" name="from" style="display: none" value="<%= client %>">
+                <input type="checkbox"  name="rememberme" value="true" ><h6>Remember me </h6>
                 <button type="submit" class="btn btn-custom-primary">Login</button>
+                
             </form>
             <hr>
                 <p>Need an account? <a href="/signup?client=TK">Signup</a></p>
@@ -60,6 +62,7 @@
                         </div>
                         <input type="text" class="form-control" name="from" style="display: none" value="<%= client %>">
                         <button type="submit" class="btn btn-custom-primary">Login</button>
+                        <input type="checkbox"  name="rememberme" ><h6>Remember me </h6></input>
                     </form>
                     <hr>
                         <p>Need an account? <a href="/signup?client=IS">Signup</a></p>

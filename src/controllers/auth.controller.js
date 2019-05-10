@@ -5,6 +5,7 @@ import config from "../../config";
 import base64 from "../helpers/base64";
 import jwt from "jsonwebtoken";
 import _ from 'lodash'
+
 const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po name ?
   //console.log(req.body)
   let username = req.body.username
@@ -48,7 +49,7 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
                   name: userData.name,
                   exp: new Date().getTime() / 1000 + 3600
                 }
-                console.log(config.currentUser)
+                // console.log(config.currentUser)
                 let token = jwt.sign(config.currentUser, clientData.secret/*config.secret*/)
                 res.status(200).send({ token: token, url: clientData.redirect })
               }
@@ -61,7 +62,55 @@ const login = (req, res) => { // znaci clientId problem, jer ga nemam, mozda po 
     }
   })
 }
-// 
+
+const autolog = (req, res) => {
+  jwt.verify(req.body.token, config.secret, (err, result) => {
+      if (err) {
+          res.status(401).json({ error: err })
+      } else {
+          let username = result.sub
+          let clientId = req.body.client
+          if (clientId === undefined) clientId = 'IS'
+          User.findOne({ 'email': username }, (err, userData) => {
+              if (err || !userData) {
+                  res.status(401).send("noAccess")
+              } else {
+                  Client.findOne({ 'clientId': clientId }, (err, clientData) => {
+                      if (err || !clientData) {
+                          res.status(404).send("noAccess")
+                      } else {
+                          Access.findOne({ 'user': userData._id, 'client': clientData._id }, (err, accessData) => {
+                              if (err || !accessData) {
+                                  res.status(401).send("noAccess")
+                              } else {
+                                  config.currentUser = {
+                                      id: userData._id,
+                                      sub: userData.email,
+                                      name: userData.name,
+                                      clId: clientData.clientId,
+                                      cli: clientData.name,
+                                      scopes: accessData.scopes,
+                                      enabled: userData.enabled,
+                                      exp: new Date().getTime() / 1000 + 3600
+                                  }
+                                  config.token = jwt.sign(config.currentUser, clientData.secret)
+																	console.log("TCL: autolog -> secret", clientData.secret)
+                                  console.log("TCL: autolog -> redirect", clientData.redirect)
+
+                                  let result = {
+                                      url: clientData.redirect,
+                                      token: config.token
+                                  }
+                                  res.status(200).send(result)
+                              }
+                          })
+                      }
+                  })
+              }
+          })
+      }
+  })
+}
 
 const signed = (req, res, next) => {
   let token = req.headers.authorization;
@@ -76,46 +125,14 @@ const signed = (req, res, next) => {
         config.currentUser = result;
 
         let exp = result.exp - new Date().getTime() / 1000;
+        
         next();
       }
     });
   }
 };
 
-export default { login, signed };
+export default { login, signed ,autolog};
 
 
 
-
-
-
-
-
-// const login = (req, res) => {
-//   let username = req.body.username;
-//   let password = req.body.password;
-//   User.findOne({ email: username }, (err, data) => {
-//     if (err || !data) {
-
-//       res.status(401).send("User does not exist");
-
-//     } else {
-//       if (data.authenticate(password)) {
-//         config.currentUser = {
-//           _id: data._id,
-//           sub: data.email,
-//           cli: "TimeKeeper",
-//           role: "user",
-//           name: data.name,
-//           exp: new Date().getTime() / 1000 + 3600
-//         };
-
-//        // console.log(config.currentUser)
-//         let token = jwt.sign(config.currentUser, config.secret);
-//         res.status(200).send(token);
-//       } else {
-//         res.status(401).send("User does not exist");
-//       }
-//     }
-//   });
-// };

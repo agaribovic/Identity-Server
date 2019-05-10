@@ -2,7 +2,9 @@ import request from "request";
 import config from "../../config";
 import nodemailer from "nodemailer";
 import _ from "lodash";
-
+import {LocalStorage} from 'node-localstorage'
+import jwt from 'jsonwebtoken'
+// const ls = new LocalStorage('./store')
 function sendMail(mailTo, mailSubject, mailBody) {
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -25,45 +27,143 @@ function sendMail(mailTo, mailSubject, mailBody) {
   //#endregion
 }
 module.exports = app => {
+  const ls = new LocalStorage('./store')
+    app.locals = { currentUser: config.currentUser }
+  // app.get("/", (req, res) =>
+  //  {
+   
+  //   config.currentUser = {};
+  //   config.token = "";
+  //   config.client = req.query.client;
+  //   if (config.client == undefined) config.client = "IS";
+  //   //console.log(config.client)
+  //   if (config.client == undefined)
+  //     res.render("login.ejs", { message: "", client: "", info: config.token });
+  //   else {
+  //     res.render("login.ejs", {
+  //       message: "",
+  //       client: config.client,
+  //       info: config.token
+  //     });
+  //   }
+  // });
+
+
   app.get("/", (req, res) => {
-    // config.currentUser = {}
-    // config.token = ''
-
-    //     res.render("login.ejs", { message: "", client: '', info: config.token,client:config.client });
+    console.log( ls.getItem("ident"))
     config.currentUser = {};
     config.token = "";
     config.client = req.query.client;
-    if (config.client == undefined) config.client = "IS";
-    //console.log(config.client)
-    if (config.client == undefined)
-      res.render("login.ejs", { message: "", client: "", info: config.token });
-    else {
-      res.render("login.ejs", {
-        message: "",
-        client: config.client,
-        info: config.token
-      });
+    let client = config.client;
+    let token = ls.getItem("ident");
+    if (token !== null) {
+      request.post(
+        {
+          url: config.authUrl + "autolog",
+          body: { token, client },
+          json: true
+        },
+        (err, result) => {
+          
+          if (result.statusCode===200) {
+            res.redirect("/adminPanel");
+          } else {
+            if (client === "IS") res.redirect("/login?token=IS");
+            else
+              {
+                console.log("TCL: result.body.url", result.body.url)
+                res.redirect(result.body.url + "?token=" + result.body.token);}
+							
+          }
+        }
+      )
+    } else {
+      if (config.client == undefined) config.client = "IS";
+      //console.log(config.client)
+      if (config.client == undefined)
+        res.render("login.ejs", {
+          message: "",
+          client: "",
+          info: config.token
+        });
+      else {
+        res.render("login.ejs", {
+          message: "",
+          client: config.client,
+          info: config.token
+        });
+      }
     }
   });
-
   app.get("/login", (req, res) => {
+    console.log( ls.getItem("ident"))
     config.currentUser = {};
     config.token = "";
     config.client = req.query.client;
-    if (config.client == undefined) config.client = "IS";
-    //console.log(config.client)
-    if (config.client == undefined)
-      res.render("login.ejs", { message: "", client: "", info: config.token });
-    else {
-      res.render("login.ejs", {
-        message: "",
-        client: config.client,
-        info: config.token
-      });
+    let client = config.client;
+    let token = ls.getItem("ident");
+    if (token !== null) {
+      request.post(
+        {
+          url: config.authUrl + "autolog",
+          body: { token, client },
+          json: true
+        },
+        (err, result) => {
+          
+          if (result.statusCode===200) {
+            res.redirect("/adminPanel");
+          } else {
+            if (client === "IS") res.redirect("/login?token=IS");
+            else
+              {
+                console.log("TCL: result.body.url", result.body.url)
+                res.redirect(result.body.url + "?token=" + result.body.token);}
+							
+          }
+        }
+      )
+    } else {
+      if (config.client == undefined) config.client = "IS";
+      //console.log(config.client)
+      if (config.client == undefined)
+        res.render("login.ejs", {
+          message: "",
+          client: "",
+          info: config.token
+        });
+      else {
+        res.render("login.ejs", {
+          message: "",
+          client: config.client,
+          info: config.token
+        });
+      }
     }
   });
+
+   
+    app.get('/logout', (req, res) => {
+      config.currentUser = { sub: '', cli: '', role: '', name: '', exp: 0 }
+      app.locals = { currentUser: config.currentUser }
+      config.token=""
+      ls.clear()
+      res.redirect('/login')
+  })
+  app.get('/tklogout', (req, res) => {
+    config.currentUser = { sub: '', cli: '', role: '', name: '', exp: 0 }
+    app.locals = { currentUser: config.currentUser }
+    config.token=""
+    ls.clear()
+    res.redirect('http://localhost:8000')
+})
+
   app.post("/login", (req, res) => {
+
     let from = req.body.from;
+    const remember = req.body.rememberme === 'on'
+    let client = req.body.from
+    let sekret;
     request.post(
       {
         url: config.IdentityRoute + "/auth/login",
@@ -86,18 +186,35 @@ module.exports = app => {
           });
         } else {
           config.token = result.body.token;
+          app.locals = { currentUser: config.currentUser }
+
           let whereToGo;
           request.get(config.IdentityRoute + "/api/clients/", (err, result) => {
             let clientsForRedirects = JSON.parse(result.body);
             clientsForRedirects.forEach(item => {
               if (item.name == from) {
                 whereToGo = item.redirect;
-              } else if (whereToGo == undefined)
+                sekret=item.secret;
+              } else if (whereToGo === undefined)
                 whereToGo = "http://localhost:5000";
             });
             if (whereToGo != "http://localhost:5000")
-              res.redirect(whereToGo + "/auth/login?token=" + config.token);
-            else res.redirect("http://localhost:5000/adminPanel");
+             {
+              if (remember) {
+                const token = jwt.sign({sub:config.currentUser.sub}, sekret)
+                ls.setItem('ident', token)
+                }
+                res.redirect(whereToGo + "/auth/login?token=" + config.token);
+             }
+             else
+             {
+              if (remember) {
+                const token = jwt.sign({sub:config.currentUser.sub}, sekret)
+                ls.setItem('ident', token)
+                }
+                
+              res.redirect("http://localhost:5000/adminPanel");
+             }
           });
         }
       }
@@ -200,7 +317,7 @@ module.exports = app => {
 
   app.get("/signup", (req, res) => {
     config.client = req.query.client;
-    console.log(config.client)
+    // console.log(config.client)
     if (config.client === undefined) config.client = "IS";
     res.render("signup.ejs", { message: "", client: config.client });
   });
@@ -441,7 +558,7 @@ module.exports = app => {
 
   app.post("/assignments", (req, res) => {
     //req.body.scopes = { role: req.body.role, action: req.body.action, team: req.body.team };
-    console.log(req.body)
+    // console.log(req.body)
     let accId;
     let userFound;
     let userMail;
@@ -483,7 +600,7 @@ module.exports = app => {
       (err, result) => {
         accId = result.body._id;
         roleOnTheClient = req.body.role;
-        console.log("asdasd", roleOnTheClient);
+        // console.log("asdasd", roleOnTheClient);
         request.put(
           {
             url: config.IdentityRoute + "/api/users/" + req.body.user,
