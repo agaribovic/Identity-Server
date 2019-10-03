@@ -1,4 +1,4 @@
-# Identity Server by Team Apollo
+# Identity Server 
 ### Download the project: 
 git clone https://github.com/agaribovic/Identity-Server.git <br/> 
 ### Install all the necessary dependencies by running: 
